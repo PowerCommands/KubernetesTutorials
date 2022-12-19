@@ -50,5 +50,9 @@ kubernetes-bootcamp   NodePort    10.103.59.168   <none>        3000:30460/TCP  
 Open this URL in your webbrowser: http://localhost:30460
 If it´s not working, check the port number after 3000: it may not be the same as this example.
 
+You shoud now see the famous OWASP Juice shop!
+
+![Alt text](images/tutorial_1_1.png?raw=true "OWASP Juice Shop")
+
 Congratulations you have now deployed your first K8:s application and made it reachable outside your K8:s kluster.
 
