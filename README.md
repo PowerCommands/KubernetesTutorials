@@ -63,6 +63,8 @@ https://code.visualstudio.com/download
 # Tutorials
 [Deploy your first app](wiki/Deploy-Your-First-App.md)
 
+[Kubernetes Dashboard](wiki/Deploy-Kubernetes-Dashboard.md)
+
 
 
 
