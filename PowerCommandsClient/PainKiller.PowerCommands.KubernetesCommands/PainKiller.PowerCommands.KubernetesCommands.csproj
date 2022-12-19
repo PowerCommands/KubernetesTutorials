@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net7.0;net6.0</TargetFrameworks>
+		<LangVersion>10.0</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Commands\Templates\**" />
+	  <EmbeddedResource Remove="Commands\Templates\**" />
+	  <None Remove="Commands\Templates\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Core\PainKiller.PowerCommands.Configuration\PainKiller.PowerCommands.Configuration.csproj" />
+		<ProjectReference Include="..\Core\PainKiller.PowerCommands.Core\PainKiller.PowerCommands.Core.csproj" />
+		<ProjectReference Include="..\Core\PainKiller.PowerCommands.ReadLine\PainKiller.PowerCommands.ReadLine.csproj" />
+		<ProjectReference Include="..\Core\PainKiller.PowerCommands.Security\PainKiller.PowerCommands.Security.csproj" />
+		<ProjectReference Include="..\Core\PainKiller.PowerCommands.Shared\PainKiller.PowerCommands.Shared.csproj" />
+		<ProjectReference Include="..\Third party components\PainKiller.SerilogExtensions\PainKiller.SerilogExtensions.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="ArtifactPathsConfiguration.yaml">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="PowerCommandsConfiguration.yaml">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+</Project>

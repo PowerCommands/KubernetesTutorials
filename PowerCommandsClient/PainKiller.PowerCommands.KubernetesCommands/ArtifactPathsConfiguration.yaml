@@ -1,0 +1,50 @@
+version: 1.0
+configuration:
+  name: Kubernetes
+  download: PainKiller.PowerCommands.MyExampleCommands
+  templates: '{appdata}|templates'
+  validProjectFiles:
+  - PainKiller.PowerCommands.Bootstrap\PainKiller.PowerCommands.Bootstrap.csproj
+  - PainKiller.PowerCommands.PowerCommandsConsole\PainKiller.PowerCommands.PowerCommandsConsole.csproj
+  - Core
+  - Third party components
+  - Third party components\PainKiller.SerilogExtensions\PainKiller.SerilogExtensions.csproj
+  - Core\PainKiller.PowerCommands.Configuration\PainKiller.PowerCommands.Configuration.csproj
+  - Core\PainKiller.PowerCommands.Core\PainKiller.PowerCommands.Core.csproj
+  - Core\PainKiller.PowerCommands.ReadLine\PainKiller.PowerCommands.ReadLine.csproj
+  - Core\PainKiller.PowerCommands.Security\PainKiller.PowerCommands.Security.csproj
+  - Core\PainKiller.PowerCommands.Shared\PainKiller.PowerCommands.Shared.csproj
+  - PainKiller.PowerCommands.MyExampleCommands\PainKiller.PowerCommands.MyExampleCommands.csproj
+  commands:
+  - Demo
+  - Config
+  - Dir
+  - Doc
+  templateCommands:
+  - Default
+  vsCode: PowerCommands2022\.vscode\
+  customComponents: PowerCommands2022\src\PainKiller.PowerCommands\Custom Components\
+  docsDbFile: PowerCommands2022\src\PainKiller.PowerCommands\Core\PainKiller.PowerCommands.Core\DocsDB.data
+  docsDbGithub: https://raw.githubusercontent.com/PowerCommands/PowerCommands2022/main/src/PainKiller.PowerCommands/Core/PainKiller.PowerCommands.Core/DocsDB.data
+  githubRoot: https://raw.githubusercontent.com/PowerCommands/PowerCommands2022/main/src/PainKiller.PowerCommands
+  source:
+    exampleProjectFile: PowerCommands2022\src\PainKiller.PowerCommands\PainKiller.PowerCommands.{name}Commands\PainKiller.PowerCommands.MyExampleCommands.csproj
+    solutionFileName: PowerCommands2022\src\PainKiller.PowerCommands\PowerCommands.{name}.sln
+    commandsProject: PowerCommands2022\src\PainKiller.PowerCommands\PainKiller.PowerCommands.MyExampleCommands
+    renamedCommandsProject: PowerCommands2022\src\PainKiller.PowerCommands\PainKiller.PowerCommands.{name}Commands
+    bootstrapProject: PowerCommands2022\src\PainKiller.PowerCommands\PainKiller.PowerCommands.Bootstrap
+    consoleProject: PowerCommands2022\src\PainKiller.PowerCommands\PainKiller.PowerCommands.PowerCommandsConsole    
+    template: '{name}\PowerCommands2022\src\PainKiller.PowerCommands\PainKiller.PowerCommands.MyExampleCommands\Commands\Templates'
+    backup: '\download\{_name}'
+    core: PowerCommands2022\src\PainKiller.PowerCommands\Core
+    thirdParty: PowerCommands2022\src\\PainKiller.PowerCommands\Third party components
+  target:
+    exampleProjectFile: PainKiller.PowerCommands.MyExampleCommands\PainKiller.PowerCommands.MyExampleCommands.csproj
+    solutionFileName: PowerCommands.{name}.sln
+    commandsProject: PainKiller.PowerCommands.{name}Commands
+    bootstrapProject: PainKiller.PowerCommands.Bootstrap
+    consoleProject: PainKiller.PowerCommands.PowerCommandsConsole    
+    template: Commands
+    backup: '\backup\{name}'
+    core: Core
+    thirdParty: Third party components

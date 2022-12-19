@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net7.0;net6.0</TargetFrameworks>
+		<LangVersion>10.0</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Core\PainKiller.PowerCommands.Configuration\PainKiller.PowerCommands.Configuration.csproj" />
+		<ProjectReference Include="..\Core\PainKiller.PowerCommands.Core\PainKiller.PowerCommands.Core.csproj" />
+		<ProjectReference Include="..\Core\PainKiller.PowerCommands.ReadLine\PainKiller.PowerCommands.ReadLine.csproj" />
+		<ProjectReference Include="..\Core\PainKiller.PowerCommands.Security\PainKiller.PowerCommands.Security.csproj" />
+		<ProjectReference Include="..\Core\PainKiller.PowerCommands.Shared\PainKiller.PowerCommands.Shared.csproj" />
+		<ProjectReference Include="..\PainKiller.PowerCommands.KubernetesCommands\PainKiller.PowerCommands.KubernetesCommands.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Extensions\" />
+	</ItemGroup>
+
+</Project>
