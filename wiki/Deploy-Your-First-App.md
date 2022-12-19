@@ -1,5 +1,5 @@
 # Deploy a simple webb applikation
-This example will guide you trought the steps to deploy one webb applikation in one pod on a Docker Desktop K8:s kluster. As the Docker Desktop K8:s environment only consist of one kluster already prepared for you, the creation of a K8:s kluster is omitted. The code examples is using an [alias](../README.md) for **kubectl**
+This example will guide you trought the steps to deploy one webb applikation in one pod on a Docker Desktop K8:s kluster. As the Docker Desktop K8:s environment only consist of one kluster already prepared for you, the creation of a K8:s kluster is omitted. The code examples is using an [alias](../README.md) **k** for **kubectl**
 
 ## Deployoment
 ### Get the nodes of our K8:s kluster, just to know that your kubernetes kluster is up and running.
@@ -56,3 +56,15 @@ You shoud now see the famous OWASP Juice shop!
 
 Congratulations you have now deployed your first K8:s application and made it reachable outside your K8:s kluster.
 
+### Tips if you want to create files (called manifest) you can add --output="yaml" like this:
+```
+k create deployment kubernetes-bootcamp --image=bkimminich/juice-shop:latest --output="yaml"
+```
+This manifest file could be saved and use to recreate your application on a different kluster. With this command:
+```
+kubectl apply -f bootcamp-deployment.yaml
+```
+And for the service.
+```
+kubectl apply -f bootcamp-service.yaml
+```
