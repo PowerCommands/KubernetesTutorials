@@ -12,7 +12,7 @@ This will be the same as applying the files in the **[src](../src/dashboard/)** 
 kubectl apply -f bootcamp-01-deployment.yaml
 kubectl apply -f bootcamp-01-deployment.yaml
 ```
-You could do the same thing with the Dashboard tutorial, using the same command, but different name (witch reflects the directory name).
+You could do the same thing with the Dashboard tutorial, using the same command, but different name (which reflects the directory name).
 ``` 
 publish --name dashboard
 ```
