@@ -34,6 +34,7 @@ https://code.visualstudio.com/download
 ### Now you are prepared!
 
 # Tutorials
+[Deploy your first app](wiki/Deploy-Your-First-App.md)
 
 
 

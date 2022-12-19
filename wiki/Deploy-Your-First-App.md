@@ -12,3 +12,43 @@ Should return something like this on a fresh install.
 NAME             STATUS   ROLES           AGE   VERSION
 docker-desktop   Ready    control-plane   22h   v1.25.2
 ``` 
+### Create a deployment
+``` 
+k create deployment kubernetes-bootcamp --image=bkimminich/juice-shop:latest
+``` 
+**View your result**
+``` 
+k get deployments
+``` 
+``` 
+NAME                  READY   UP-TO-DATE   AVAILABLE   AGE
+kubernetes-bootcamp   0/1     1            0           7s
+``` 
+### Create a service
+You now have a pod running, you can check that out with 
+``` 
+k get pods
+``` 
+``` 
+NAME                                   READY   STATUS    RESTARTS   AGE
+kubernetes-bootcamp-6b7cccd9c4-ftljv   1/1     Running   0          3m38s
+``` 
+To expose your app you need a K8:s to ge a IP address reachable outside the K8:s kluster.
+We create a new service like this:
+``` 
+k expose deployment/kubernetes-bootcamp --type="NodePort" --port 3000
+```
+Check out your new service.
+``` 
+k get services
+```
+``` 
+NAME                  TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+kubernetes            ClusterIP   10.96.0.1       <none>        443/TCP          22h
+kubernetes-bootcamp   NodePort    10.103.59.168   <none>        3000:30460/TCP   111s
+``` 
+Open this URL in your webbrowser: http://localhost:30460
+If it´s not working, check the port number after 3000: it may not be the same as this example.
+
+Congratulations you have now deployed your first K8:s application and made it reachable outside your K8:s kluster.
+
