@@ -7,7 +7,7 @@ With PowerCommand you could create the bootcamp sample like this:
 ``` 
 publish --name bootcamp
 ```
-This will be the same as applying the files in the **[src](../src/dashboard/)** directory with this commands.
+This will be the same as applying the files in the **[src/dashboard](../src/dashboard/)** directory with this commands.
 ```
 kubectl apply -f bootcamp-01-deployment.yaml
 kubectl apply -f bootcamp-01-deployment.yaml

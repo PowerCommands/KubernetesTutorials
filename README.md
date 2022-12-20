@@ -55,6 +55,13 @@ Create a register file, name is unimportant but it must have the **.reg** as fil
 [HKEY_CURRENT_USER\Software\Microsoft\Command Processor]
 "AutoRun"="c:\\\"Program Files\"\\k8s\\alias.cmd"
 ```
+## Use PowerCommands 
+You can use PowerCommands tool as your command-line environment instead of build in **cmd** or **powershell**, just open the VS solution [PowerCommandsClient](PowerCommandsClient) within this repo, set the PoserCommandsConsole project as startup project, hit [F5] and start typing your kubectl commands using the alias k (no need for the cmd and *.reg file configuration).
+
+There could be some limitations if some interactions is required for instance login to a kubernetes environment with a password, the power command just passes through what you type to the kubectl.exe that was installed with Docker Desktop. 
+
+The PowerCommands also includes automation functionality to publish the tutorials, applying the files from [src](src/) folder using the sort order of the file names.
+
 ### Visual Code
 https://code.visualstudio.com/download
 
@@ -64,6 +71,8 @@ https://code.visualstudio.com/download
 [Deploy your first app](wiki/Deploy-Your-First-App.md)
 
 [Kubernetes Dashboard](wiki/Deploy-Kubernetes-Dashboard.md)
+
+[Peristent storage, setup a MS SQL Server](wiki/Percistent-Storage.md)
 
 
 

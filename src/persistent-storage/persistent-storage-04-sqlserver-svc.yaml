@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mssql-sample-service
+  namespace: default
+spec:
+  clusterIP: 10.96.166.44
+  clusterIPs:
+  - 10.96.166.44
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack  
+  ports:
+  - nodePort: 30200
+    port: 1433
+    protocol: TCP
+    targetPort: 1433  
+  selector:
+    app: mssql-sample
+  type: NodePort
