@@ -20,6 +20,12 @@ spec:
    requests:
     storage: 5Gi
 ```
+Make sure that your command environment is browsing the directory with the yaml configuration files for this tutorial, they are located here **[src/persistent-storage](../src/persistent-storage/)**.
+
+Run this command:
+```
+k apply -f persistent-storage-01-pvc.yaml
+```
 ### Create a Kubernetes Secret
 The SQL Server instance needs a password, we provide that with the use of a Kubernetes secret.
 
@@ -40,6 +46,12 @@ If you want to change the password (and you really should) you could use the **[
 base64 --encode your-new-password
 ```
 Or use your Linux Ubuntu that you installed with WSL2 if you are familiar with Linux.
+
+Run this command:
+```
+k apply -f persistent-storage-02-secret.yaml
+```
+
 ### Deployment
 
 **[persistent-storage-03-sqlserver-deploy.yaml](../src/persistent-storage/persistent-storage-03-sqlserver-deploy.yaml)** 
@@ -82,6 +94,11 @@ spec:
         persistentVolumeClaim:
           claimName: mssql-sample-data-claim
 ```
+Run this command:
+```
+k apply -f persistent-storage-03-sqlserver-deploy.yaml
+```
+
 ### Service
 
 **[persistent-storage-04-sqlserver-svc.yaml](../src/persistent-storage/persistent-storage-04-sqlserver-svc.yaml)**
@@ -109,6 +126,11 @@ spec:
     app: mssql-sample
   type: NodePort
 ```
+Run this command:
+```
+k apply -f persistent-storage-04-sqlserver-svc.yaml
+```
+
 ### Login with Management Studio
 Find out your IP-address with 
 ```
