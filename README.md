@@ -74,6 +74,9 @@ https://code.visualstudio.com/download
 
 [Peristent storage, setup a MS SQL Server](wiki/Percistent-Storage.md)
 
+# Tools
+[Setup ArgoCD (Continous Delivery)](wiki/ArgoCD.md)
+
 
 
 

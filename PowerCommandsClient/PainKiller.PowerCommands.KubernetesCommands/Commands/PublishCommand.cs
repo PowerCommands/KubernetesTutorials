@@ -1,7 +1,7 @@
 namespace PainKiller.PowerCommands.KubernetesCommands.Commands;
 
 [PowerCommandDesign( description: "Publish your kubernetes application(s)",
-                         options: "!name",
+                         options: "!name|!namespace",
                          example: "publish --name bootcamp")]
 public class PublishCommand : CommandBase<PowerCommandsConfiguration>
 {
@@ -11,13 +11,17 @@ public class PublishCommand : CommandBase<PowerCommandsConfiguration>
     {
         var name = GetOptionValue("name");
         var path = Path.Combine(Configuration.KubernetesDeploymentFilesRoot, name);
+        var nspace = GetOptionValue("namespace");
         var dirInfo = new DirectoryInfo(path);
 
         var fileNames = Directory.GetFiles(path, "*.yaml").OrderBy(f => f).ToList();
         foreach (var fileName in fileNames)
         {
+            var nmnSpace = nspace;
+            if (!string.IsNullOrEmpty(nmnSpace) && !fileName.ToLower().Contains("namespace")) nmnSpace = $"-n {nspace}";
+            else nmnSpace = "";
             var fileInfo = new FileInfo(fileName);
-            ShellService.Service.Execute("kubectl",$"apply -f {fileInfo.FullName}",dirInfo.FullName, WriteLine,"", waitForExit: true);
+            ShellService.Service.Execute("kubectl",$"apply {nmnSpace} -f {fileInfo.FullName}",dirInfo.FullName, WriteLine,"", waitForExit: true);
             WriteSuccessLine($"{fileInfo.Name} applied OK");
         }
 
