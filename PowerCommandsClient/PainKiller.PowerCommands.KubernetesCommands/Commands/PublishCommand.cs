@@ -24,8 +24,8 @@ public class PublishCommand : CommandBase<PowerCommandsConfiguration>
             ShellService.Service.Execute("kubectl",$"apply {nmnSpace} -f {fileInfo.FullName}",dirInfo.FullName, WriteLine,"", waitForExit: true);
             WriteSuccessLine($"{fileInfo.Name} applied OK");
         }
-
-        ShellService.Service.Execute("kubectl", "get services", dirInfo.FullName, WriteLine, "", waitForExit: true);
+        if (!string.IsNullOrEmpty(nspace)) nspace = $"-n {nspace}";
+        ShellService.Service.Execute("kubectl", $"get services {nspace}", dirInfo.FullName, WriteLine, "", waitForExit: true);
         return Ok();
     }
 }

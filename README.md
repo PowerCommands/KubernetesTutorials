@@ -1,4 +1,4 @@
-# KubernetesTutorials
+# Kubernetes - Docker Desktop tutorials
 My shared playground that I update as I learning K8:s using Docker Desktop on Windows 11.
 I am sharing my work as is, I leave no garantuees and I am learning this while doing it.
 
