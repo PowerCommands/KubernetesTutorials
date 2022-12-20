@@ -35,7 +35,7 @@ data:
   SA_PASSWORD: UEBzc3dvcmQxJA==
 type: Opaque
 ```
-If you want to change the password (and you really should) you could use the **[PowerCommands.KubernetesCommands](../src/persistent-storage//)** command **base64**.
+If you want to change the password (and you really should) you could use the **[PowerCommands.KubernetesCommands](../PowerCommandsClient/)** command **base64**.
 ```
 base64 --encode your-new-password
 ```
