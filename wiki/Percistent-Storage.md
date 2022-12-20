@@ -2,12 +2,12 @@
 Containers are ephemeral by definition, which means that anything that it is stored at running time is lost when the container is stopped. This might cause problems with containers that need to persist their data, like database containers.
 
 ## Use case - Install MS SQL Server 
-So in this tutorial we are setting up a database container with persistent storage "outside" the container it self. When the container goes down, the data is still there ready to be used when the container is up again. For this tutorial we will use files and use the command **apply** to apply our changes to the kubernetes cluster. All this files are stored in the **[src/persistent-storage](../src/persistent-storage//)** directory.
+So in this tutorial we are setting up a database container with persistent storage "outside" the container it self. When the container goes down, the data is still there ready to be used when the container is up again. For this tutorial we will use files and use the command **apply** to apply our changes to the kubernetes cluster. All this files are stored in the **[src/persistent-storage](../src/persistent-storage/)** directory.
 
 ### Create a Persistent Volume
 Persistent volume claim is needed to store SQL Server data and yaml snippet to create a 5 GB storage is displayed below. The deployment file is going to mount files to this storage claim.
 
-**persistent-storage-01-pvc.yaml**
+ **[persistent-storage-01-pvc.yaml](../src/persistent-storage/persistent-storage-01-pvc.yaml)**
 ```
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -22,7 +22,8 @@ spec:
 ```
 ### Create a Kubernetes Secret
 The SQL Server instance needs a password, we provide that with the use of a Kubernetes secret.
-**persistent-storage-01-secret.yaml**
+
+**[persistent-storage-02-secret.yaml](../src/persistent-storage/persistent-storage-02-secret.yaml)**
 ```
 kind: Secret
 apiVersion: v1
@@ -39,30 +40,21 @@ If you want to change the password (and you really should) you could use the **[
 base64 --encode your-new-password
 ```
 Or use your Linux Ubuntu that you installed with WSL2 if you are familiar with Linux.
-### Service
-**persistent-storage-03-sqlserver-svc.yaml**
-```
-apiVersion: v1
-kind: Service
-metadata:
-  name: mssql-sample-service
-spec:
-  selector:
-    app: mssql-sample
-  ports:
-    - protocol: TCP
-      port: 1433
-      targetPort: 1433
-  type: ClusterIP
-```
-### Deployment 
+### Deployment
+
+**[persistent-storage-03-sqlserver-deploy.yaml](../src/persistent-storage/persistent-storage-03-sqlserver-deploy.yaml)** 
+
 ```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mssql-sample-deployment
+  namespace: default
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: mssql-sample
   template:
     metadata:
       labels:
@@ -76,7 +68,7 @@ spec:
         - containerPort: 1433
         env:
         - name: ACCEPT_EULA
-          value: "Y"
+          value: "Y"        
         - name: SA_PASSWORD
           valueFrom:
             secretKeyRef:
@@ -89,6 +81,33 @@ spec:
       - name: mssql-persistent-storage
         persistentVolumeClaim:
           claimName: mssql-sample-data-claim
+```
+### Service
+
+**[persistent-storage-04-sqlserver-svc.yaml](../src/persistent-storage/persistent-storage-04-sqlserver-svc.yaml)**
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: mssql-sample-service
+  namespace: default
+spec:
+  clusterIP: 10.96.166.44
+  clusterIPs:
+  - 10.96.166.44
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack  
+  ports:
+  - nodePort: 30200
+    port: 1433
+    protocol: TCP
+    targetPort: 1433  
+  selector:
+    app: mssql-sample
+  type: NodePort
 ```
 ### Login with Management Studio
 Find out your IP-address with 
