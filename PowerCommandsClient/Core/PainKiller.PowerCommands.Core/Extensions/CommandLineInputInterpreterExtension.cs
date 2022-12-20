@@ -61,7 +61,7 @@ public static class CommandLineInputInterpreterExtension
     private static string GetOptionValue(string[] options, string optionName, string raw)
     {
         var quotes = Regex.Matches(raw, "\\\"(.*?)\\\"").ToStringArray();
-        var option = options.FirstOrDefault(f => f == $"--{optionName.ToLower()}" || f.ToLower().Substring(2,1)  == $"{optionName.ToLower()}".Substring(0,1));
+        var option = options.FirstOrDefault(f => f == $"--{optionName.ToLower()}");
         if (IsNullOrEmpty(option)) return "";
 
         var firstQuotedOptionValueIfAny = FindFirstQuotedOptionValueIfAny(raw, quotes, optionName);

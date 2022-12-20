@@ -10,9 +10,8 @@ public class TokenCommand : CommandBase<PowerCommandsConfiguration>
     public override RunResult Run()
     {
         var userName = GetOptionValue("username");
-        DisableLog();
-        ShellService.Service.Execute("kubectl", $"-n kubernetes-dashboard create token {userName}", "", WriteLine, "", waitForExit: true);
-        EnableLog();
+        ShellService.Service.Execute("kubectl", $"-n kubernetes-dashboard create token {userName}", "", ReadLine, "", waitForExit: true);
+        Console.WriteLine(LastReadLine);
         return Ok();
     }
 }
