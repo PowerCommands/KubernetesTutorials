@@ -41,7 +41,7 @@ This will start the port forwarding console, it will decode the initial password
 
 ### Add your repo
 Navigate to settings -> Repositories and choose **+Connect Repo**
-Easiest is to connect to a public Github repo using ** Via https** method (you point out a directory later)
+Easiest is to connect to a public Github repo using **Via https** method (you point out a directory later)
 
 ### Add an application
 Use the **+New App** button, fill in the necessary info, the path to the directory you want to sync, project name could be **default** sync policy **manual** cluster URL **https://kubernetes.default.svc** (it is a predefined value).

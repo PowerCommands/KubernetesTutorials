@@ -11,7 +11,7 @@ You need the following:
 - [ ] Visual Code
 
 ### WSL2
-Docker Desktop works best on Windows using WSL2, I first try to install it using the Hyper-V option as I already using Hyper-V for virtual matchines. But for some unknown reason I did not get this to work on my Windows 11 machine so I retried with the recommended WSL2 option instead. (I know understand why it is the recommended choice)
+Docker Desktop works best on Windows using WSL2, I first try to install it using the Hyper-V option as I already using Hyper-V for virtual machines. But for some unknown reason I did not get this to work on my Windows 11 machine so I retried with the recommended WSL2 option instead. (I know understand why it is the recommended choice)
 
 Docker will enable the WSL2 feature on your machine for you BUT! You should really install WSL2 first before you even install Docker Desktop. 
 
@@ -60,7 +60,7 @@ You can use PowerCommands tool as your command-line environment instead of build
 
 There could be some limitations if some interactions is required for instance login to a kubernetes environment with a password, the power command just passes through what you type to the kubectl.exe that was installed with Docker Desktop. 
 
-The PowerCommands also includes automation functionality to publish the tutorials, applying the files from [src](src/) folder using the sort order of the file names.
+The PowerCommands also includes automation functionality to publish the tutorials automatically, applying the files from [src](src/) folder using the sort order of the file names. You could also startup the Kubernetes Dashboard or the ArgoCD Administration UI with decoding of the initial ArgoCD admin password that otherwise could be a bit tricky.
 
 ### Visual Code
 https://code.visualstudio.com/download
@@ -72,10 +72,10 @@ https://code.visualstudio.com/download
 
 [Kubernetes Dashboard](wiki/Deploy-Kubernetes-Dashboard.md)
 
-[Peristent storage, setup a MS SQL Server](wiki/Percistent-Storage.md)
+[Persistent storage, setup a MS SQL Server](wiki/Percistent-Storage.md)
 
 # Tools
-[Setup ArgoCD (Continous Delivery)](wiki/ArgoCD.md)
+[ArgoCD (GitOps tool to synchronize your repo and K8:s cluster)](wiki/ArgoCD.md)
 
 
 
