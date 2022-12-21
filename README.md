@@ -70,13 +70,13 @@ https://code.visualstudio.com/download
 # Tutorials
 [Deploy your first app](wiki/Deploy-Your-First-App.md)
 
-[Kubernetes Dashboard](wiki/Deploy-Kubernetes-Dashboard.md)
-
 [Persistent storage, setup a MS SQL Server](wiki/Percistent-Storage.md)
 
 [Install Wordpress with Helm and Helm chart](wiki/Wordpress.md)
 
 # Tools
+[Kubernetes Dashboard](wiki/Deploy-Kubernetes-Dashboard.md)
+
 [ArgoCD (GitOps tool to synchronize your repo and K8:s cluster)](wiki/ArgoCD.md)
 
 [Helm (Helm is the best way to find, share, and use software built for Kubernetes.)](wiki/Helm.md)
