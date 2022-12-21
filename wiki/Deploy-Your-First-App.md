@@ -1,7 +1,7 @@
-# Deploy a simple webb applikation
-This example will guide you trought the steps to deploy one webb applikation in one pod on a Docker Desktop K8:s kluster. As the Docker Desktop K8:s environment only consist of one kluster already prepared for you, the creation of a K8:s kluster is omitted. The code examples is using an [alias](../README.md) **k** for **kubectl**
+# Deploy a simple web application
+This example will guide you trough the steps to deploy one webb application in one pod on a Docker Desktop K8:s kluster. As the Docker Desktop K8:s environment only consist of one kluster already prepared for you, the creation of a K8:s kluster is omitted. The code examples is using an [alias](../README.md) **k** for **kubectl**
 
-## Deployoment
+## Deployment
 ### Get the nodes of our K8:s kluster, just to know that your kubernetes kluster is up and running.
 
 ``` 
@@ -47,7 +47,7 @@ NAME                  TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)         
 kubernetes            ClusterIP   10.96.0.1       <none>        443/TCP          22h
 kubernetes-bootcamp   NodePort    10.103.59.168   <none>        3000:30460/TCP   111s
 ``` 
-Open this URL in your webbrowser: http://localhost:30460
+Open this URL in your browser: http://localhost:30460
 If it´s not working, check the port number after 3000: it may not be the same as this example.
 
 You shoud now see the famous OWASP Juice shop!
