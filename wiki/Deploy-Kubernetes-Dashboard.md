@@ -23,4 +23,17 @@ Please note that the current version 2.6.1 is going to be something else next mo
 To use the Dashboard you first need a user with valid privileges, this is described here:
 https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
 
+You could perform this steps with the files located in [../src/dashboard](../src/dashboard/)
+```
+kubectl apply -f dashboard-02-adminuser.yaml
+``` 
+And
+```
+kubectl apply -f dashboard-03-role-binding.yaml
+``` 
+Last step is to create the token with this command:
+``` 
+kubectl -n kubernetes-dashboard create token admin-user
+``` 
+
 **IMPORTANT:** Make sure that you know what you are doing before proceeding. Granting admin privileges to Dashboard's Service Account might be a security risk.
