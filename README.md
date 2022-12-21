@@ -74,6 +74,8 @@ https://code.visualstudio.com/download
 
 [Persistent storage, setup a MS SQL Server](wiki/Percistent-Storage.md)
 
+[Install Wordpress with Helm and Helm chart](wiki/Wordpress.md)
+
 # Tools
 [ArgoCD (GitOps tool to synchronize your repo and K8:s cluster)](wiki/ArgoCD.md)
 

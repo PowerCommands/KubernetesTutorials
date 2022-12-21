@@ -44,3 +44,11 @@ Now you can install helm.
 brew install helm
 ```
 Congratulations you now have Helm installed, with this tool you can use **helmcharts** which will make bigger installations much easier.
+
+I recommend you to continue with this tutorial from the creators of Helm.
+
+https://helm.sh/docs/intro/quickstart/
+
+Find helm repos here:
+
+https://artifacthub.io/packages/search?kind=0

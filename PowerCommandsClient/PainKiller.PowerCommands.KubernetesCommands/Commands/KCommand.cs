@@ -9,7 +9,7 @@ public class KCommand : CommandBase<PowerCommandsConfiguration>
 
     public override RunResult Run()
     {
-        ShellService.Service.Execute("kubectl", string.Join(' ',Input.Arguments), "", WriteLine, "", waitForExit: true);
+        ShellService.Service.Execute("kubectl", Input.Raw.Replace($"{Input.Identifier} ",""), "", WriteLine, "", waitForExit: true);
         return Ok();
     }
 }
