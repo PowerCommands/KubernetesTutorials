@@ -74,6 +74,8 @@ https://code.visualstudio.com/download
 
 [Install Wordpress with Helm and Helm chart](wiki/Wordpress.md)
 
+[Cron job with .NET Worker service](wiki/Worker-service.md)
+
 # Tools
 [Kubernetes Dashboard](wiki/Deploy-Kubernetes-Dashboard.md)
 
