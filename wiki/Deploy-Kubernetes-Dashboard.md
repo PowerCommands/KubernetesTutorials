@@ -6,6 +6,13 @@ The Dashboard UI is not deployed by default. To deploy it, run the following com
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.1/aio/deploy/recommended.yaml
 ``` 
+## Start a proxy
+You need to start a proxy that serves as a backend to the dashboard UI, it´s easy just run this command in a new CMD prompt:
+```
+kubectl proxy
+``` 
+And let this cmd prompt window be open as long as you are using the dashboard.
+
 The dashboard is then available on your local machine:
 http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
 
