@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "MyWorkerService": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development",
+        "WebApiUrl": "https://localhost:7075/api"
+      },
+      "dotnetRunMessages": true
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
