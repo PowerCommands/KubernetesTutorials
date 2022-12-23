@@ -19,4 +19,12 @@ public class BlogController : ControllerBase
         var result = await _context.Posts.AllAsync(p => p.Created > new DateTime(2000, 1, 1));
         return Ok(result);
     }
+
+    [HttpPost]
+    public async Task<ActionResult<int>> Create(Post post)
+    {
+        await _context.Posts.AddAsync(post);
+        var rowsAffected = await _context.SaveChangesAsync();
+        return Ok(rowsAffected);
+    }
 }
