@@ -68,20 +68,20 @@ https://code.visualstudio.com/download
 ### Now you are prepared!
 
 # Tutorials
-[Deploy your first app](wiki/Deploy-Your-First-App.md)
+[Deploy your first app](Docs/Deploy-Your-First-App.md)
 
-[Persistent storage, setup a MS SQL Server](wiki/Percistent-Storage.md)
+[Persistent storage, setup a MS SQL Server](Docs/Percistent-Storage.md)
 
-[Install Wordpress with Helm and Helm chart](wiki/Wordpress.md)
+[Install Wordpress with Helm and Helm chart](Docs/Wordpress.md)
 
-[Cron job with .NET Worker service](wiki/Worker-service.md)
+[Cron job with .NET Worker service](Docs/Worker-service.md)
 
 # Tools
-[Kubernetes Dashboard](wiki/Deploy-Kubernetes-Dashboard.md)
+[Kubernetes Dashboard](Docs/Deploy-Kubernetes-Dashboard.md)
 
-[ArgoCD (GitOps tool to synchronize your repo and K8:s cluster)](wiki/ArgoCD.md)
+[ArgoCD (GitOps tool to synchronize your repo and K8:s cluster)](Docs/ArgoCD.md)
 
-[Helm (Helm is the best way to find, share, and use software built for Kubernetes.)](wiki/Helm.md)
+[Helm (Helm is the best way to find, share, and use software built for Kubernetes.)](Docs/Helm.md)
 
 
 
