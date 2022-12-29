@@ -1,6 +1,8 @@
+apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: mycronjob
+  name: my-worker-service-job
+  namespace: worker-service  
 spec:
   schedule: "*/5 * * * *" # Runs every 5 minutes
   jobTemplate:
@@ -8,7 +10,9 @@ spec:
       template:
         spec:
           containers:
-          - name: mycronjob
-            image: << registry url (we'll fill this in next) >>
+          - name: my-worker-service-job01
+            image: dockerdoktor/myworkerservice
             env:
+            - name: WebApiUrl
+              value: "https://10.96.166.88:31188/api"
           restartPolicy: OnFailure
