@@ -11,8 +11,8 @@ spec:
         spec:
           containers:
           - name: my-worker-service-job01
-            image: dockerdoktor/myworkerservice
+            image: dockerdoktor/myworkerservice:latest
             env:
             - name: WebApiUrl
-              value: "https://10.96.166.88:31188/api"
+              value: "http://192.168.0.16:31188/api"
           restartPolicy: OnFailure

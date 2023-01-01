@@ -1,7 +1,7 @@
 namespace WorkerServiceTutorial.WebApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class BlogController : ControllerBase
 {
     private readonly ILogger<BlogController> _logger;

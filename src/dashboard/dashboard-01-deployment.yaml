@@ -1,435 +1,306 @@
+ # Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 apiVersion: v1
-items:
-- apiVersion: v1
-  kind: Namespace
-  metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"v1","kind":"Namespace","metadata":{"annotations":{},"name":"kubernetes-dashboard"}}
-    creationTimestamp: "2022-12-19T19:19:11Z"
-    labels:
-      kubernetes.io/metadata.name: kubernetes-dashboard
-    name: kubernetes-dashboard
-    resourceVersion: "5174"
-    uid: 474e06cb-bc16-4542-9f26-ec8abc21b16f
-  spec:
-    finalizers:
-    - kubernetes
-  status:
-    phase: Active
-- apiVersion: v1
-  kind: ServiceAccount
-  metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"v1","kind":"ServiceAccount","metadata":{"annotations":{},"labels":{"k8s-app":"kubernetes-dashboard"},"name":"kubernetes-dashboard","namespace":"kubernetes-dashboard"}}
-    creationTimestamp: "2022-12-19T19:19:11Z"
-    labels:
-      k8s-app: kubernetes-dashboard
-    name: kubernetes-dashboard
-    namespace: kubernetes-dashboard
-    resourceVersion: "5175"
-    uid: 81819301-1095-4a74-8db3-534dc3b3a3cd
-- apiVersion: v1
-  kind: Service
-  metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"k8s-app":"kubernetes-dashboard"},"name":"kubernetes-dashboard","namespace":"kubernetes-dashboard"},"spec":{"ports":[{"port":443,"targetPort":8443}],"selector":{"k8s-app":"kubernetes-dashboard"}}}
-    creationTimestamp: "2022-12-19T19:19:11Z"
-    labels:
-      k8s-app: kubernetes-dashboard
-    name: kubernetes-dashboard
-    namespace: kubernetes-dashboard
-    resourceVersion: "5179"
-    uid: b781998f-b29e-430b-a781-07e8450d3cf3
-  spec:
-    clusterIP: 10.110.122.225
-    clusterIPs:
-    - 10.110.122.225
-    internalTrafficPolicy: Cluster
-    ipFamilies:
-    - IPv4
-    ipFamilyPolicy: SingleStack
-    ports:
+kind: Namespace
+metadata:
+  name: kubernetes-dashboard
+
+---
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    k8s-app: kubernetes-dashboard
+  name: kubernetes-dashboard
+  namespace: kubernetes-dashboard
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    k8s-app: kubernetes-dashboard
+  name: kubernetes-dashboard
+  namespace: kubernetes-dashboard
+spec:
+  ports:
     - port: 443
-      protocol: TCP
       targetPort: 8443
-    selector:
-      k8s-app: kubernetes-dashboard
-    sessionAffinity: None
-    type: ClusterIP
-  status:
-    loadBalancer: {}
-- apiVersion: v1
-  kind: Secret
-  metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"v1","kind":"Secret","metadata":{"annotations":{},"labels":{"k8s-app":"kubernetes-dashboard"},"name":"kubernetes-dashboard-certs","namespace":"kubernetes-dashboard"},"type":"Opaque"}
-    creationTimestamp: "2022-12-19T19:19:11Z"
-    labels:
-      k8s-app: kubernetes-dashboard
-    name: kubernetes-dashboard-certs
-    namespace: kubernetes-dashboard
-    resourceVersion: "5180"
-    uid: 2df4d80a-9085-49b3-909a-7f4fdd0fb8cf
-  type: Opaque
-- apiVersion: v1
-  data:
-    csrf: ""
-  kind: Secret
-  metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"v1","data":{"csrf":""},"kind":"Secret","metadata":{"annotations":{},"labels":{"k8s-app":"kubernetes-dashboard"},"name":"kubernetes-dashboard-csrf","namespace":"kubernetes-dashboard"},"type":"Opaque"}
-    creationTimestamp: "2022-12-19T19:19:11Z"
-    labels:
-      k8s-app: kubernetes-dashboard
-    name: kubernetes-dashboard-csrf
-    namespace: kubernetes-dashboard
-    resourceVersion: "5183"
-    uid: bde6be64-dc6e-4e12-83a7-38f5eddb6754
-  type: Opaque
-- apiVersion: v1
-  kind: Secret
-  metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"v1","kind":"Secret","metadata":{"annotations":{},"labels":{"k8s-app":"kubernetes-dashboard"},"name":"kubernetes-dashboard-key-holder","namespace":"kubernetes-dashboard"},"type":"Opaque"}
-    creationTimestamp: "2022-12-19T19:19:11Z"
-    labels:
-      k8s-app: kubernetes-dashboard
-    name: kubernetes-dashboard-key-holder
-    namespace: kubernetes-dashboard
-    resourceVersion: "5184"
-    uid: 93d73309-849f-4ec7-a11b-7c08382cabe3
-  type: Opaque
-- apiVersion: v1
-  kind: ConfigMap
-  metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"v1","kind":"ConfigMap","metadata":{"annotations":{},"labels":{"k8s-app":"kubernetes-dashboard"},"name":"kubernetes-dashboard-settings","namespace":"kubernetes-dashboard"}}
-    creationTimestamp: "2022-12-19T19:19:11Z"
-    labels:
-      k8s-app: kubernetes-dashboard
-    name: kubernetes-dashboard-settings
-    namespace: kubernetes-dashboard
-    resourceVersion: "5185"
-    uid: 75bb81ba-7ea6-4e04-89ca-d6ee30bf0aa3
-- apiVersion: rbac.authorization.k8s.io/v1
+  selector:
+    k8s-app: kubernetes-dashboard
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  labels:
+    k8s-app: kubernetes-dashboard
+  name: kubernetes-dashboard-certs
+  namespace: kubernetes-dashboard
+type: Opaque
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  labels:
+    k8s-app: kubernetes-dashboard
+  name: kubernetes-dashboard-csrf
+  namespace: kubernetes-dashboard
+type: Opaque
+data:
+  csrf: ""
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  labels:
+    k8s-app: kubernetes-dashboard
+  name: kubernetes-dashboard-key-holder
+  namespace: kubernetes-dashboard
+type: Opaque
+
+---
+
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  labels:
+    k8s-app: kubernetes-dashboard
+  name: kubernetes-dashboard-settings
+  namespace: kubernetes-dashboard
+
+---
+
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  labels:
+    k8s-app: kubernetes-dashboard
+  name: kubernetes-dashboard
+  namespace: kubernetes-dashboard
+rules:
+  # Allow Dashboard to get, update and delete Dashboard exclusive secrets.
+  - apiGroups: [""]
+    resources: ["secrets"]
+    resourceNames: ["kubernetes-dashboard-key-holder", "kubernetes-dashboard-certs", "kubernetes-dashboard-csrf"]
+    verbs: ["get", "update", "delete"]
+    # Allow Dashboard to get and update 'kubernetes-dashboard-settings' config map.
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    resourceNames: ["kubernetes-dashboard-settings"]
+    verbs: ["get", "update"]
+    # Allow Dashboard to get metrics.
+  - apiGroups: [""]
+    resources: ["services"]
+    resourceNames: ["heapster", "dashboard-metrics-scraper"]
+    verbs: ["proxy"]
+  - apiGroups: [""]
+    resources: ["services/proxy"]
+    resourceNames: ["heapster", "http:heapster:", "https:heapster:", "dashboard-metrics-scraper", "http:dashboard-metrics-scraper"]
+    verbs: ["get"]
+
+---
+
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  labels:
+    k8s-app: kubernetes-dashboard
+  name: kubernetes-dashboard
+rules:
+  # Allow Metrics Scraper to get metrics from the Metrics server
+  - apiGroups: ["metrics.k8s.io"]
+    resources: ["pods", "nodes"]
+    verbs: ["get", "list", "watch"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    k8s-app: kubernetes-dashboard
+  name: kubernetes-dashboard
+  namespace: kubernetes-dashboard
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
   kind: Role
-  metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"Role","metadata":{"annotations":{},"labels":{"k8s-app":"kubernetes-dashboard"},"name":"kubernetes-dashboard","namespace":"kubernetes-dashboard"},"rules":[{"apiGroups":[""],"resourceNames":["kubernetes-dashboard-key-holder","kubernetes-dashboard-certs","kubernetes-dashboard-csrf"],"resources":["secrets"],"verbs":["get","update","delete"]},{"apiGroups":[""],"resourceNames":["kubernetes-dashboard-settings"],"resources":["configmaps"],"verbs":["get","update"]},{"apiGroups":[""],"resourceNames":["heapster","dashboard-metrics-scraper"],"resources":["services"],"verbs":["proxy"]},{"apiGroups":[""],"resourceNames":["heapster","http:heapster:","https:heapster:","dashboard-metrics-scraper","http:dashboard-metrics-scraper"],"resources":["services/proxy"],"verbs":["get"]}]}
-    creationTimestamp: "2022-12-19T19:19:11Z"
-    labels:
-      k8s-app: kubernetes-dashboard
+  name: kubernetes-dashboard
+subjects:
+  - kind: ServiceAccount
     name: kubernetes-dashboard
     namespace: kubernetes-dashboard
-    resourceVersion: "5186"
-    uid: 24314b84-c15c-4f4c-bccf-70ecf1cc73bd
-  rules:
-  - apiGroups:
-    - ""
-    resourceNames:
-    - kubernetes-dashboard-key-holder
-    - kubernetes-dashboard-certs
-    - kubernetes-dashboard-csrf
-    resources:
-    - secrets
-    verbs:
-    - get
-    - update
-    - delete
-  - apiGroups:
-    - ""
-    resourceNames:
-    - kubernetes-dashboard-settings
-    resources:
-    - configmaps
-    verbs:
-    - get
-    - update
-  - apiGroups:
-    - ""
-    resourceNames:
-    - heapster
-    - dashboard-metrics-scraper
-    resources:
-    - services
-    verbs:
-    - proxy
-  - apiGroups:
-    - ""
-    resourceNames:
-    - heapster
-    - 'http:heapster:'
-    - 'https:heapster:'
-    - dashboard-metrics-scraper
-    - http:dashboard-metrics-scraper
-    resources:
-    - services/proxy
-    verbs:
-    - get
-- apiVersion: rbac.authorization.k8s.io/v1
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: kubernetes-dashboard
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRole","metadata":{"annotations":{},"labels":{"k8s-app":"kubernetes-dashboard"},"name":"kubernetes-dashboard"},"rules":[{"apiGroups":["metrics.k8s.io"],"resources":["pods","nodes"],"verbs":["get","list","watch"]}]}
-    creationTimestamp: "2022-12-19T19:19:11Z"
-    labels:
-      k8s-app: kubernetes-dashboard
-    name: kubernetes-dashboard
-    resourceVersion: "5187"
-    uid: 6ef09868-61f0-4b30-b6f4-4b80147ddbef
-  rules:
-  - apiGroups:
-    - metrics.k8s.io
-    resources:
-    - pods
-    - nodes
-    verbs:
-    - get
-    - list
-    - watch
-- apiVersion: rbac.authorization.k8s.io/v1
-  kind: RoleBinding
-  metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"RoleBinding","metadata":{"annotations":{},"labels":{"k8s-app":"kubernetes-dashboard"},"name":"kubernetes-dashboard","namespace":"kubernetes-dashboard"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"Role","name":"kubernetes-dashboard"},"subjects":[{"kind":"ServiceAccount","name":"kubernetes-dashboard","namespace":"kubernetes-dashboard"}]}
-    creationTimestamp: "2022-12-19T19:19:11Z"
-    labels:
-      k8s-app: kubernetes-dashboard
-    name: kubernetes-dashboard
-    namespace: kubernetes-dashboard
-    resourceVersion: "5188"
-    uid: 36f43adb-4853-44d3-a1fe-1059463e30bd
-  roleRef:
-    apiGroup: rbac.authorization.k8s.io
-    kind: Role
-    name: kubernetes-dashboard
-  subjects:
+  name: kubernetes-dashboard
+subjects:
   - kind: ServiceAccount
     name: kubernetes-dashboard
     namespace: kubernetes-dashboard
-- apiVersion: rbac.authorization.k8s.io/v1
-  kind: ClusterRoleBinding
-  metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"name":"kubernetes-dashboard"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"kubernetes-dashboard"},"subjects":[{"kind":"ServiceAccount","name":"kubernetes-dashboard","namespace":"kubernetes-dashboard"}]}
-    creationTimestamp: "2022-12-19T19:19:11Z"
-    name: kubernetes-dashboard
-    resourceVersion: "5189"
-    uid: d713e26e-e3fc-4ad3-b80f-75a015ae2914
-  roleRef:
-    apiGroup: rbac.authorization.k8s.io
-    kind: ClusterRole
-    name: kubernetes-dashboard
-  subjects:
-  - kind: ServiceAccount
-    name: kubernetes-dashboard
-    namespace: kubernetes-dashboard
-- apiVersion: apps/v1
-  kind: Deployment
-  metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"k8s-app":"kubernetes-dashboard"},"name":"kubernetes-dashboard","namespace":"kubernetes-dashboard"},"spec":{"replicas":1,"revisionHistoryLimit":10,"selector":{"matchLabels":{"k8s-app":"kubernetes-dashboard"}},"template":{"metadata":{"labels":{"k8s-app":"kubernetes-dashboard"}},"spec":{"containers":[{"args":["--auto-generate-certificates","--namespace=kubernetes-dashboard"],"image":"kubernetesui/dashboard:v2.6.1","imagePullPolicy":"Always","livenessProbe":{"httpGet":{"path":"/","port":8443,"scheme":"HTTPS"},"initialDelaySeconds":30,"timeoutSeconds":30},"name":"kubernetes-dashboard","ports":[{"containerPort":8443,"protocol":"TCP"}],"securityContext":{"allowPrivilegeEscalation":false,"readOnlyRootFilesystem":true,"runAsGroup":2001,"runAsUser":1001},"volumeMounts":[{"mountPath":"/certs","name":"kubernetes-dashboard-certs"},{"mountPath":"/tmp","name":"tmp-volume"}]}],"nodeSelector":{"kubernetes.io/os":"linux"},"securityContext":{"seccompProfile":{"type":"RuntimeDefault"}},"serviceAccountName":"kubernetes-dashboard","tolerations":[{"effect":"NoSchedule","key":"node-role.kubernetes.io/master"}],"volumes":[{"name":"kubernetes-dashboard-certs","secret":{"secretName":"kubernetes-dashboard-certs"}},{"emptyDir":{},"name":"tmp-volume"}]}}}}
-    creationTimestamp: "2022-12-19T19:19:11Z"
-    generation: 1
-    labels:
+
+---
+
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    k8s-app: kubernetes-dashboard
+  name: kubernetes-dashboard
+  namespace: kubernetes-dashboard
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
       k8s-app: kubernetes-dashboard
-    name: kubernetes-dashboard
-    namespace: kubernetes-dashboard
-    resourceVersion: "5190"
-    uid: 11d432fc-fdd0-4fc3-a6b1-cab179ae7a87
-  spec:
-    progressDeadlineSeconds: 600
-    replicas: 1
-    revisionHistoryLimit: 10
-    selector:
-      matchLabels:
+  template:
+    metadata:
+      labels:
         k8s-app: kubernetes-dashboard
-    strategy:
-      rollingUpdate:
-        maxSurge: 25%
-        maxUnavailable: 25%
-      type: RollingUpdate
-    template:
-      metadata:
-        creationTimestamp: null
-        labels:
-          k8s-app: kubernetes-dashboard
-      spec:
-        containers:
-        - args:
-          - --auto-generate-certificates
-          - --namespace=kubernetes-dashboard
+    spec:
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: kubernetes-dashboard
           image: kubernetesui/dashboard:v2.6.1
           imagePullPolicy: Always
+          ports:
+            - containerPort: 8443
+              protocol: TCP
+          args:
+            - --auto-generate-certificates
+            - --namespace=kubernetes-dashboard
+            # Uncomment the following line to manually specify Kubernetes API server Host
+            # If not specified, Dashboard will attempt to auto discover the API server and connect
+            # to it. Uncomment only if the default does not work.
+            # - --apiserver-host=http://my-address:port
+          volumeMounts:
+            - name: kubernetes-dashboard-certs
+              mountPath: /certs
+              # Create on-disk volume to store exec logs
+            - mountPath: /tmp
+              name: tmp-volume
           livenessProbe:
-            failureThreshold: 3
             httpGet:
+              scheme: HTTPS
               path: /
               port: 8443
-              scheme: HTTPS
             initialDelaySeconds: 30
-            periodSeconds: 10
-            successThreshold: 1
             timeoutSeconds: 30
-          name: kubernetes-dashboard
-          ports:
-          - containerPort: 8443
-            protocol: TCP
-          resources: {}
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
-            runAsGroup: 2001
             runAsUser: 1001
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
-          volumeMounts:
-          - mountPath: /certs
-            name: kubernetes-dashboard-certs
-          - mountPath: /tmp
-            name: tmp-volume
-        dnsPolicy: ClusterFirst
-        nodeSelector:
-          kubernetes.io/os: linux
-        restartPolicy: Always
-        schedulerName: default-scheduler
-        securityContext:
-          seccompProfile:
-            type: RuntimeDefault
-        serviceAccount: kubernetes-dashboard
-        serviceAccountName: kubernetes-dashboard
-        terminationGracePeriodSeconds: 30
-        tolerations:
-        - effect: NoSchedule
-          key: node-role.kubernetes.io/master
-        volumes:
+            runAsGroup: 2001
+      volumes:
         - name: kubernetes-dashboard-certs
           secret:
-            defaultMode: 420
             secretName: kubernetes-dashboard-certs
-        - emptyDir: {}
-          name: tmp-volume
-  status: {}
-- apiVersion: v1
-  kind: Service
-  metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"k8s-app":"dashboard-metrics-scraper"},"name":"dashboard-metrics-scraper","namespace":"kubernetes-dashboard"},"spec":{"ports":[{"port":8000,"targetPort":8000}],"selector":{"k8s-app":"dashboard-metrics-scraper"}}}
-    creationTimestamp: "2022-12-19T19:19:11Z"
-    labels:
-      k8s-app: dashboard-metrics-scraper
-    name: dashboard-metrics-scraper
-    namespace: kubernetes-dashboard
-    resourceVersion: "5194"
-    uid: 6a70e506-3d52-45ab-a828-6febf79358ca
-  spec:
-    clusterIP: 10.109.10.72
-    clusterIPs:
-    - 10.109.10.72
-    internalTrafficPolicy: Cluster
-    ipFamilies:
-    - IPv4
-    ipFamilyPolicy: SingleStack
-    ports:
+        - name: tmp-volume
+          emptyDir: {}
+      serviceAccountName: kubernetes-dashboard
+      nodeSelector:
+        "kubernetes.io/os": linux
+      # Comment the following tolerations if Dashboard must not be deployed on master
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    k8s-app: dashboard-metrics-scraper
+  name: dashboard-metrics-scraper
+  namespace: kubernetes-dashboard
+spec:
+  ports:
     - port: 8000
-      protocol: TCP
       targetPort: 8000
-    selector:
+  selector:
+    k8s-app: dashboard-metrics-scraper
+
+---
+
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    k8s-app: dashboard-metrics-scraper
+  name: dashboard-metrics-scraper
+  namespace: kubernetes-dashboard
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
       k8s-app: dashboard-metrics-scraper
-    sessionAffinity: None
-    type: ClusterIP
-  status:
-    loadBalancer: {}
-- apiVersion: apps/v1
-  kind: Deployment
-  metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"k8s-app":"dashboard-metrics-scraper"},"name":"dashboard-metrics-scraper","namespace":"kubernetes-dashboard"},"spec":{"replicas":1,"revisionHistoryLimit":10,"selector":{"matchLabels":{"k8s-app":"dashboard-metrics-scraper"}},"template":{"metadata":{"labels":{"k8s-app":"dashboard-metrics-scraper"}},"spec":{"containers":[{"image":"kubernetesui/metrics-scraper:v1.0.8","livenessProbe":{"httpGet":{"path":"/","port":8000,"scheme":"HTTP"},"initialDelaySeconds":30,"timeoutSeconds":30},"name":"dashboard-metrics-scraper","ports":[{"containerPort":8000,"protocol":"TCP"}],"securityContext":{"allowPrivilegeEscalation":false,"readOnlyRootFilesystem":true,"runAsGroup":2001,"runAsUser":1001},"volumeMounts":[{"mountPath":"/tmp","name":"tmp-volume"}]}],"nodeSelector":{"kubernetes.io/os":"linux"},"securityContext":{"seccompProfile":{"type":"RuntimeDefault"}},"serviceAccountName":"kubernetes-dashboard","tolerations":[{"effect":"NoSchedule","key":"node-role.kubernetes.io/master"}],"volumes":[{"emptyDir":{},"name":"tmp-volume"}]}}}}
-    creationTimestamp: "2022-12-19T19:19:11Z"
-    generation: 1
-    labels:
-      k8s-app: dashboard-metrics-scraper
-    name: dashboard-metrics-scraper
-    namespace: kubernetes-dashboard
-    resourceVersion: "5201"
-    uid: 45cf8a82-e3f1-4978-bbc2-9fd6088354b9
-  spec:
-    progressDeadlineSeconds: 600
-    replicas: 1
-    revisionHistoryLimit: 10
-    selector:
-      matchLabels:
+  template:
+    metadata:
+      labels:
         k8s-app: dashboard-metrics-scraper
-    strategy:
-      rollingUpdate:
-        maxSurge: 25%
-        maxUnavailable: 25%
-      type: RollingUpdate
-    template:
-      metadata:
-        creationTimestamp: null
-        labels:
-          k8s-app: dashboard-metrics-scraper
-      spec:
-        containers:
-        - image: kubernetesui/metrics-scraper:v1.0.8
-          imagePullPolicy: IfNotPresent
+    spec:
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: dashboard-metrics-scraper
+          image: kubernetesui/metrics-scraper:v1.0.8
+          ports:
+            - containerPort: 8000
+              protocol: TCP
           livenessProbe:
-            failureThreshold: 3
             httpGet:
+              scheme: HTTP
               path: /
               port: 8000
-              scheme: HTTP
             initialDelaySeconds: 30
-            periodSeconds: 10
-            successThreshold: 1
             timeoutSeconds: 30
-          name: dashboard-metrics-scraper
-          ports:
-          - containerPort: 8000
-            protocol: TCP
-          resources: {}
-          securityContext:
-            allowPrivilegeEscalation: false
-            readOnlyRootFilesystem: true
-            runAsGroup: 2001
-            runAsUser: 1001
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
           volumeMounts:
           - mountPath: /tmp
             name: tmp-volume
-        dnsPolicy: ClusterFirst
-        nodeSelector:
-          kubernetes.io/os: linux
-        restartPolicy: Always
-        schedulerName: default-scheduler
-        securityContext:
-          seccompProfile:
-            type: RuntimeDefault
-        serviceAccount: kubernetes-dashboard
-        serviceAccountName: kubernetes-dashboard
-        terminationGracePeriodSeconds: 30
-        tolerations:
-        - effect: NoSchedule
-          key: node-role.kubernetes.io/master
-        volumes:
-        - emptyDir: {}
-          name: tmp-volume
-  status: {}
-kind: List
-metadata: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            runAsUser: 1001
+            runAsGroup: 2001
+      serviceAccountName: kubernetes-dashboard
+      nodeSelector:
+        "kubernetes.io/os": linux
+      # Comment the following tolerations if Dashboard must not be deployed on master
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+      volumes:
+        - name: tmp-volume
+          emptyDir: {}

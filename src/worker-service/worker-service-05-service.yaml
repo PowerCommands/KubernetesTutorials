@@ -17,9 +17,9 @@ spec:
   ipFamilyPolicy: SingleStack
   ports:
   - nodePort: 31188
-    port: 443
+    port: 80
     protocol: TCP
-    targetPort: 443
+    targetPort: 80
   selector:
     app: worker-service-app
   sessionAffinity: None

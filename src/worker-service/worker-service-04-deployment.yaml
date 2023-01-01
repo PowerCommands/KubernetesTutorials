@@ -25,12 +25,18 @@ spec:
         app: worker-service-app
     spec:
       containers:
-      - image: dockerdoktor/workerservicetutorialwebapi
+      - image: dockerdoktor/workerservicetutorialwebapi:latest
         imagePullPolicy: Always
         name: workerservicetutorialwebapi01
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File      
+        env:
+        - name: SA_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mssql-sample-secret
+              key: SA_PASSWORD
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
