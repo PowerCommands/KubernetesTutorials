@@ -96,13 +96,13 @@ When you have change the IP address to your IP address then you could apply this
 ```
 k apply -f worker-service-02-cron-job.yaml
 ```
-*Note that the work will fail as long as the WebAPI container is up and running.*
+*Note that the work will fail as long as the WebAPI container is not up and running.*
 
 ## .NET WebAPI
-I will not get into details about it, in this [WorkerServiceTutorial directory](../src/worker-service-WebProjects/WorkerServiceTutorial/) you have the VS solution with the WebAPI and the Worker Service projects. You could just open that with Visual Studio and examine the code if you want. The WebApi has one a controller named BlogController and there is a method that creates a blog post in the table Blog in the MS Sql database. If the database does not exist it will be created, same for the Blog table. One thing though we do need to handle and that is the connection string, in this case we will use an environment variable once again combined with the kubernetes secrets functionality.
+I will not get into details about it, in this [WorkerServiceTutorial directory](../src/worker-service-WebProjects/WorkerServiceTutorial/) you have the VS solution with the WebAPI and the Worker Service projects. You could just open that with Visual Studio and examine the code if you want. The WebApi has one a controller named BlogController and there is a method that creates a blog post in the table Blog in the MS Sql database. If the database does not exist it will be created, same for the Blog table. One thing though we do need to handle and that is the connection string, in this case we will use an environment variable once again, this time also combined with the kubernetes secrets functionality.
 
 ### Kubernetes secret and the Connection String?
-Please not that this tutorial is not about secure coding, in a real world scenario you would probably use some kind of Vault solution to store your secrets in a secure way. Kubernetes functionality for handling sensitive data is not really good enough. But it is better than storing the password for the database user in clear text.
+Please, be aware that this tutorial is not about secure coding, in a real world scenario you would probably use some kind of Vault solution to store your secrets in a secure way. Kubernetes functionality for handling sensitive data is not really good enough. But it is better than storing the password for the database user in clear text.
 
 First we need to create the secret in our kubernetes kluster (again), we have already done that earlier when we created the MS Sql Server database, but it is an another namespace, and for this tutorial, lets forget it, lets create a new secret just for this WebAPI, this how a secret is declared. 
 ```
@@ -157,9 +157,9 @@ static string GetConnectionString(ConfigurationManager? configurationManager)
     return retVal;
 }
 ```
-Yes it a bit ugly, you can do this much nicer... but I leave that to you, this tutorial is about kubernetes. You now understand how you could configure environment variables in clear text or as secrets for your kubernetes cluster and use them in your ASP.NET application.
+You now understand how you could configure environment variables in clear text or as secrets for your kubernetes cluster and use them in your ASP.NET application.
 
-Now it is time to add your WebApi Application to the kubernetes cluster like this:
+It is time to add your WebApi Application to the kubernetes cluster like this:
 ```
 k apply -f worker-service-04-deployment.yaml
 ```
