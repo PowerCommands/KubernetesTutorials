@@ -35,7 +35,8 @@
       "publishAllPorts": true,
       "useSSL": false,
       "environmentVariables": {
-        "SA_PASSWORD": "-"
+        "SA_PASSWORD": "-",
+        "DB_SERVER": "-"
       }
     }
   },
