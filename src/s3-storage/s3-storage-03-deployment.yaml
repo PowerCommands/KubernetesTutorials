@@ -9,8 +9,11 @@ spec:
   containers:
   - name: minio
     image: quay.io/minio/minio:latest  
-    command: ["minio"]
-    args: ["server", "/storage"]
+    command: 
+    - /bin/bash
+    - -c
+    args:
+    - minio server /data --console-address :9090
     volumeMounts:
     - name: storage 
       mountPath: "/storage"
