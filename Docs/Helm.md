@@ -1,7 +1,7 @@
 # Helm
 The package manager for Kubernetes, Helm is the best way to find, share, and use software built for Kubernetes.
 
-##Installation 
+## Installation 
 ### Homebrew on Linux
 First you need to install an installer package manager, I first tried **Snap** but no success just headache, so I went for **homebrew** instead, remember... We are talking about Linux now, nothing is simple when it comes to Linux, Google is your best friend.
 

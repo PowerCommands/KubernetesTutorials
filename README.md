@@ -17,7 +17,7 @@ How to you create storage claims, how to use kubernetes secrets.
 
 [Install Wordpress with Helm and Helm chart](Docs/Wordpress.md)
 
-The package manager for Kubernetes, Helm is the best way to find, share, and use software built for Kubernetes.
+The package manager for Kubernetes, Helm is the best way to find, share, and use software built for Kubernetes. Before you run this tutorial you need to [install helm](Docs/Helm.md).
 
 [Cron job with .NET Worker service](Docs/Worker-service.md)
 
