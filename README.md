@@ -19,7 +19,7 @@ How to you create storage claims, how to use kubernetes secrets.
 
 How to create kubernetes jobs, using a SQL server (from earlier tutorial) a .NET Worker service and a .NET WebAPI together. In this tutorial I will create two own images and publish them on docker hub. I will also using environment variables and secrets.
 
-[S3 storage with MinIO](Docs/Worker-service.md)
+[S3 storage with MinIO](Docs/S3-storage.md)
 
 MinIO is a high performance object storage solution that provides an Amazon Web Services S3-compatible API and supports all core S3 features. This storage is to be used by an upcoming tutorial where we setup a Jupyter Notebook instance that stores it´s data in a MinIO "bucket".
 
