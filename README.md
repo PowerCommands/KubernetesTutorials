@@ -11,17 +11,21 @@ I am sharing my work as is, I leave no guarantees and I am an experienced develo
 
 Learn about how to make simple queries against your kubernetes kluster, and apply your deployment.
 
-[Persistent storage, setup a MS SQL Server](Docs/Percistent-Storage.md)
+[Setup a MS SQL database Server](Docs/Percistent-Storage.md)
 
 How to you create storage claims, how to use kubernetes secrets.
-
-[Install Wordpress with Helm and Helm chart](Docs/Wordpress.md)
-
-The package manager for Kubernetes, Helm is the best way to find, share, and use software built for Kubernetes. Before you run this tutorial you need to [install helm](Docs/Helm.md).
 
 [Cron job with .NET Worker service](Docs/Worker-service.md)
 
 How to create kubernetes jobs, using a SQL server (from earlier tutorial) a .NET Worker service and a .NET WebAPI together. In this tutorial I will create two own images and publish them on docker hub. I will also using environment variables and secrets.
+
+[S3 storage with MinIO](Docs/Worker-service.md)
+
+MinIO is a high performance object storage solution that provides an Amazon Web Services S3-compatible API and supports all core S3 features. This storage is to be used by an upcoming tutorial where we setup a Jupyter Notebook instance that stores it´s data in a MinIO "bucket".
+
+[Install Wordpress with Helm and Helm chart](Docs/Wordpress.md)
+
+The package manager for Kubernetes, Helm is the best way to find, share, and use software built for Kubernetes. Before you run this tutorial you need to [install helm](Docs/Helm.md).
 
 # Tools
 [Kubernetes Dashboard](Docs/Deploy-Kubernetes-Dashboard.md)
