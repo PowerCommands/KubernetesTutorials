@@ -24,7 +24,7 @@ Use the kubectl port-forward command to temporarily forward traffic from the Min
 kubectl port-forward pod/minio 9000 9090 -n minio-dev
 ```
 ### Connect your Browser to the MinIO Server
-Access the MinIO Console by opening a browser on the local machine and navigating to (http://127.0.0.1:9090)[http://127.0.0.1:9090].
+Access the MinIO Console by opening a browser on the local machine and navigating to [http://127.0.0.1:9090](http://127.0.0.1:9090).
 
 Log in to the Console with the credentials minioadmin | minioadmin. These are the default root user credentials.
 
