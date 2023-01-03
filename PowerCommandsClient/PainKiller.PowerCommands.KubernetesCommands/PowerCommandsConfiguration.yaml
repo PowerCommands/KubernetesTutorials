@@ -1,7 +1,7 @@
 version: 1.0
 configuration:
   showDiagnosticInformation: false
-  defaultCommand: commands
+  defaultCommand: k
   codeEditor: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe
   repository: https://github.com/PowerCommands/PowerCommands2022
   backupPath: ..\..\..\..\Core\PainKiller.PowerCommands.Core\  
@@ -9,6 +9,8 @@ configuration:
   kubernetesDeploymentFilesRoot: ..\..\..\..\..\src\
   kubernetesDashboardUrl: http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
   argoCdAdminUrl: https://localhost:8080/
+  minIOAdminUrl: http://127.0.0.1:9090
+  minIOPortForward: port-forward pod/minio 9000 9090 -n minio-dev
   metadata:
     name: Kubernetes Client
     description: K8:s commands

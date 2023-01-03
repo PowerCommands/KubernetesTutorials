@@ -5,6 +5,13 @@ This buckets can then be accessed from other applications like a Jupyter Noteboo
 
 ## Installation
 
+All the files are located [here](../src/s3-storage/) navigate to this directory with your favorite cmd application and run the apply commands that are described below. Or... if you are in a rush you could use the [PowerCommands client](../PowerCommandsClient/) and the publish command, that will run all described apply commands for you.
+
+```
+publish --name s3-storage
+```
+The PowerCommand client will then find the kubernetes manifest files that creates a namespace, PVC and deploy the pod. Then you to do the last steps with port forwarding and log in to the MinIO Admin Console.
+
 ### Create namespace
 ```
 kubectl apply -f s3-storage-01-namespace.yaml

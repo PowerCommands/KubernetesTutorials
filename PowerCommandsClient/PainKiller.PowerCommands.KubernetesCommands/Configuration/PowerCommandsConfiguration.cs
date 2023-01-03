@@ -7,5 +7,6 @@ public class PowerCommandsConfiguration : CommandsConfiguration
     public string KubernetesDeploymentFilesRoot { get; set; } = "";
     public string KubernetesDashboardUrl { get; set; } = "";
     public string ArgoCdAdminUrl { get; set; } = "";
-
+    public string MinIOAdminUrl { get; set; } = "";
+    public string MinIOPortForward { get; set; } = "";
 }

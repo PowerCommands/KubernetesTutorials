@@ -61,6 +61,9 @@ The PowerCommands also includes automation functionality to publish the tutorial
 ## Visual Code
 https://code.visualstudio.com/download
 
+## Clone this repo with your favorite GIT Client
+It is a good idea to clone this repo or download it as an zip file so that you have all the files locally with kubernetes manifests, Visual Studio solutions and the PowerCommands Client if you want to use that. Some tutorials just assumes that you have the manifest files locally on your machine.
+
 **Now you are prepared!**
 
 Next step could be to try one of these tutorials...
