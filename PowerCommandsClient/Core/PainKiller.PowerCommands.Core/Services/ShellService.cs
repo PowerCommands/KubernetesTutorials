@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using Microsoft.Extensions.Logging;
 
 namespace PainKiller.PowerCommands.Core.Services;
@@ -47,7 +48,7 @@ public class ShellService : IShellService
         }
         processAdd!.WaitForExit(waitForExit ? InfiniteWait : ImmediateReturn);
     }
-    public void Execute(string programName, string arguments, string workingDirectory, string fileExtension = "exe", bool waitForExit = false, bool useShellExecute = false)
+    public void Execute(string programName, string arguments, string workingDirectory, string fileExtension = ".exe", bool waitForExit = false, bool useShellExecute = false)
     {
         var path = ReplaceCmdArguments(programName);
         var workingDirPath = ReplaceCmdArguments(workingDirectory);
@@ -69,6 +70,25 @@ public class ShellService : IShellService
             _logger.LogInformation($"{nameof(ShellService)} output: {outputAdd}");
         }
         processAdd!.WaitForExit(waitForExit ? InfiniteWait : ImmediateReturn);
+    }
+
+    public Process GetProxyConsoleProcess(string programName, string arguments, string workingDirectory, string fileExtension = "exe")
+    {
+        var path = ReplaceCmdArguments(programName);
+        var workingDirPath = ReplaceCmdArguments(workingDirectory);
+        _logger.LogInformation($"{nameof(ShellService)} runs Execute with paramaters {path} {arguments} {workingDirPath} {fileExtension}");
+        var extension = string.IsNullOrEmpty(fileExtension) ? "" : $".{fileExtension}";
+        var startInfo = new ProcessStartInfo
+        {
+            UseShellExecute = false,
+            RedirectStandardInput = true,
+            RedirectStandardOutput = true,
+            FileName = $"{path}{extension}",
+            Arguments = arguments,
+            WorkingDirectory = workingDirPath
+        };
+        var prc = new Process(){StartInfo = startInfo};
+        return prc;
     }
     private string ReplaceCmdArguments(string input) => input.Replace("%USERNAME%", Environment.UserName, StringComparison.CurrentCultureIgnoreCase);
 }

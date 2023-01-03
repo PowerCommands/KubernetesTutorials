@@ -9,6 +9,9 @@ public class KCommand : CommandBase<PowerCommandsConfiguration>
 
     public override RunResult Run()
     {
+        //https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.processstartinfo.redirectstandardoutput?redirectedfrom=MSDN&view=net-7.0#System_Diagnostics_ProcessStartInfo_RedirectStandardOutput
+        //https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.processstartinfo.redirectstandardinput?redirectedfrom=MSDN&view=net-7.0#System_Diagnostics_ProcessStartInfo_RedirectStandardInput
+
         ShellService.Service.Execute("kubectl", Input.Raw.Replace($"{Input.Identifier} ","").Replace("--no-quit",""), "", ReadLine, "", waitForExit: true);
         if (!string.IsNullOrEmpty(LastReadLine)) WriteLine(LastReadLine);
         return Ok();
