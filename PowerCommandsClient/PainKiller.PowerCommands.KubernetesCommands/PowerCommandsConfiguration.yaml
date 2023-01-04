@@ -11,6 +11,7 @@ configuration:
   argoCdAdminUrl: https://localhost:8080/
   minIOAdminUrl: http://127.0.0.1:9090
   minIOPortForward: port-forward pod/minio 9000 9090 -n minio-dev
+  pathToDockerDesktop: C:\Program Files\Docker\Docker
   metadata:
     name: Kubernetes Client
     description: K8:s commands

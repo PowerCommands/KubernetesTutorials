@@ -11,8 +11,19 @@ public class PublishCommand : CommandBase<PowerCommandsConfiguration>
     {
         var name = GetOptionValue("name");
         var path = Path.Combine(Configuration.KubernetesDeploymentFilesRoot, name);
+
         var nspace = GetOptionValue("namespace");
         var dirInfo = new DirectoryInfo(path);
+
+        if (string.IsNullOrEmpty(name) && dirInfo.Exists)
+        {
+            WriteHeadLine("Kubernetes projects");
+            foreach (var directoryInfo in dirInfo.GetDirectories())
+            {
+                WriteLine(directoryInfo.Name);
+            }
+            return Ok();
+        }
 
         var fileNames = Directory.GetFiles(path, "*.yaml").OrderBy(f => f).ToList();
         foreach (var fileName in fileNames)
