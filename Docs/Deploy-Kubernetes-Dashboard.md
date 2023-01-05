@@ -23,7 +23,7 @@ Please note that the current version 2.6.1 is going to be something else next mo
 To use the Dashboard you first need a user with valid privileges, this is described here:
 https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
 
-You could perform this steps with the files located in [../src/dashboard](../src/dashboard/)
+You could perform this steps with the files located in [../manifests/dashboard](../manifests/dashboard/)
 ```
 kubectl apply -f dashboard-02-adminuser.yaml
 ``` 

@@ -80,6 +80,10 @@ public abstract class CommandBase<TConfig> : IConsoleCommand, IConsoleWriter whe
     #region Write helpers
     public void Write(string output, ConsoleColor? color = null) => _console.Write(GetType().Name, output, color);
     public void WriteLine(string output) => _console.WriteLine(GetType().Name, output, null);
+    /// <summary>
+    /// Could be use when passing the method to shell execute and you need to get back what was written and you do not want that in a logfile (a secret for example)
+    /// </summary>
+    /// <param name="output"></param>
     public void ReadLine(string output) => LastReadLine = output;
     public void WriteCodeExample(string commandName, string text) => _console.WriteCodeExample(GetType().Name, commandName, text);
     public void WriteHeadLine(string output) => _console.WriteHeaderLine(GetType().Name, output);

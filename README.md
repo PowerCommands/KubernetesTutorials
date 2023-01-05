@@ -9,7 +9,7 @@ I am sharing my work as is, I leave no guarantees and I am an experienced develo
 
 [Deploy your first app](Docs/Deploy-Your-First-App.md)
 
-Learn about how to make simple queries against your kubernetes kluster, and apply your deployment.
+Learn about how to make simple queries against your kubernetes cluster, and apply your deployment.
 
 [Setup a MS SQL database Server](Docs/Percistent-Storage.md)
 

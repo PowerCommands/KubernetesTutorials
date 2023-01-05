@@ -1,11 +1,11 @@
 # Deploy a simple web application
-This example will guide you trough the steps to deploy one webb application in one pod on a Docker Desktop K8:s kluster. As the Docker Desktop K8:s environment only consist of one kluster already prepared for you, the creation of a K8:s kluster is omitted. The code examples is using an [alias](../README.md) **k** for **kubectl**
+This example will guide you trough the steps to deploy one webb application in one pod on a Docker Desktop K8:s kluster. As the Docker Desktop K8:s environment only consist of one kluster already prepared for you, the creation of a K8:s kluster is omitted. 
 
 ## Deployment
 ### Get the nodes of our K8:s kluster, just to know that your kubernetes kluster is up and running.
 
 ``` 
-k get nodes
+kubectl get nodes
 ```
 Should return something like this on a fresh install.
 ``` 
@@ -14,11 +14,11 @@ docker-desktop   Ready    control-plane   22h   v1.25.2
 ``` 
 ### Create a deployment
 ``` 
-k create deployment kubernetes-bootcamp --image=bkimminich/juice-shop:latest
+kubectl create deployment kubernetes-bootcamp --image=bkimminich/juice-shop:latest
 ``` 
 **View your result**
 ``` 
-k get deployments
+kubectl get deployments
 ``` 
 ``` 
 NAME                  READY   UP-TO-DATE   AVAILABLE   AGE
@@ -27,7 +27,7 @@ kubernetes-bootcamp   0/1     1            0           7s
 ### Create a service
 You now have a pod running, you can check that out with 
 ``` 
-k get pods
+kubectl get pods
 ``` 
 ``` 
 NAME                                   READY   STATUS    RESTARTS   AGE
@@ -36,11 +36,11 @@ kubernetes-bootcamp-6b7cccd9c4-ftljv   1/1     Running   0          3m38s
 To expose your app you need a K8:s to ge a IP address reachable outside the K8:s kluster.
 We create a new service like this:
 ``` 
-k expose deployment/kubernetes-bootcamp --type="NodePort" --port 3000
+kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 3000
 ```
 Check out your new service.
 ``` 
-k get services
+kubectl get services
 ```
 ``` 
 NAME                  TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
@@ -58,7 +58,7 @@ Congratulations you have now deployed your first K8:s application and made it re
 
 ### Tips if you want to create files (called manifest) you can add --output="yaml" like this:
 ```
-k create deployment kubernetes-bootcamp --image=bkimminich/juice-shop:latest --output="yaml"
+kubectl create deployment kubernetes-bootcamp --image=bkimminich/juice-shop:latest --output="yaml"
 ```
 This manifest file could be saved and use to recreate your application on a different kluster. With this command:
 ```
@@ -68,3 +68,10 @@ And for the service.
 ```
 kubectl apply -f bootcamp-service.yaml
 ```
+### One more tip, later on when you could try to run this files automatically with the  [Power Kubernetes Client](../PowerKubernetesClient/) open the solution in VS, set the console project as startup, then run this command.
+```
+publish bootcamp
+```
+This will apply the files like the first tip, and it will also open the browser with this url: http://localhost:30460
+That step is fired because of the extra PowerCommands specific file has been added to the other manifest files, but it has nothing to do with kubernetes.
+As the tutorials will get more and more advanced I am sure that you does not want to do every single step manually.

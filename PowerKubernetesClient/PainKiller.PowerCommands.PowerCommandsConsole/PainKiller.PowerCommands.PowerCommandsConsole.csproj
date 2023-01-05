@@ -6,7 +6,7 @@
 		<LangVersion>10.0</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<AssemblyName>kc</AssemblyName>
+		<AssemblyName>Kubernetes</AssemblyName>
 	</PropertyGroup>
 
 	<ItemGroup>

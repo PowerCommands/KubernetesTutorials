@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net7.0;net6.0</TargetFrameworks>
@@ -29,6 +29,10 @@
 		<None Update="PowerCommandsConfiguration.yaml">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="DomainObjects\" />
 	</ItemGroup>
 
 </Project>
