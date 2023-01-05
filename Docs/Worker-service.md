@@ -7,22 +7,25 @@ We setup a cron job that runs every 5 minutes, it starts a .NET Worker service t
 
 We are going to use Entity Framework and code first strategy to create the database and the table. I will not dig into the details about that. In this tutorial I am using two custom made containers one for the worker service and one for the WebAPI they will be running in two separate pods. I have published both of them on Docker hub so it is no big difference from the earlier tutorials. 
 
-But if you are curios about that, the Visual Studio project are within this repo so you could look at it closer and see just how easy it is to create your own containers and publish them. Sooner or later you will start creating your own containers. 
+But if you are curios about that, the Visual Studio project are within this repo so you could look at it closer and see just how easy it is to create your own containers and publish them. Sooner or later you will start creating your own containers.
+
+*Please note that I use k as an alias for kubectl, how to setup this alias is described in here [Preparations](Preparations.md), so k is the same as kubectl.
+If you are using the [Power Kubernetes client](../PowerKubernetesClient/) you must always use k instead av kubectl, in fact [Power Kubernetes client](../PowerKubernetesClient/) always will always assume that a kubectl command is what you want to run so if you forget the k it will add the k before running the rest of your statement.*
 
 ## Database
-In this tutorial we use the MS SQL database setup that was used in the [Persistent storage, setup a MS SQL Server](Docs/Percistent-Storage.md) tutorial. If you did not do that or if you have cleared your kubernetes kluster, you could apply the files in this [Folder](../src/persistent-storage/) first, just apply them like this:
+In this tutorial we use the MS SQL database setup that was used in the [Persistent storage, setup a MS SQL Server](Docs/Percistent-Storage.md) tutorial. If you did not do that or if you have cleared your kubernetes kluster, you could apply the files in this [Folder](../manifests/persistent-storage/) first, just apply them like this:
 ```
 k apply -f persistent-storage-01-pvc.yaml
 k apply -f persistent-storage-02-secret.yaml
 k apply -f persistent-storage-03-sqlserver-deploy.yaml
 k apply -f persistent-storage-04-sqlserver-svc.yaml
 ```
-Or you could simply use the PowerCommands kubernetes client and run:
+Or you could simply use the [Power Kubernetes client](../PowerKubernetesClient/) and run:
 ```
-publish --name persistent-storage
+publish persistent-storage
 ```
 ## Namespace
-We will use a separate namespace for this tutorial named **worker-service** you create it with the first file in this [directory](../src/worker-service/), so first make sure you are in that folder with your favorite command line client. Then run this command: 
+We will use a separate namespace for this tutorial named **worker-service** you create it with the first file in this [directory](../manifests/worker-service/), so first make sure you are in that folder with your favorite command line client. Then run this command: 
 ```
 k apply -f worker-service-01-namespace.yaml
 ```
@@ -54,7 +57,7 @@ What this kubernetes job is going to do is to spin up the specified container ev
 
 ## .NET Worker Service
 
-Before creating this tutorial for my self and others I have never used .NET Worker Service so I have not so much to say about that other then for this kind of use case it is an good option. Lets look at the code, that is really simple as it can be, the code exists in this [WorkerServiceTutorial directory](../src/worker-service-WebProjects/WorkerServiceTutorial/).
+Before creating this tutorial for my self and others I have never used .NET Worker Service so I have not so much to say about that other then for this kind of use case it is an good option. Lets look at the code, that is really simple as it can be, the code exists in this [WorkerServiceTutorial directory](../manifests/worker-service-WebProjects/WorkerServiceTutorial/).
 
 ```
 public class Worker : BackgroundService

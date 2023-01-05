@@ -52,11 +52,15 @@ Create a register file, name is unimportant but it must have the **.reg** as fil
 "AutoRun"="c:\\\"Program Files\"\\k8s\\alias.cmd"
 ```
 ## Use PowerCommands 
-You can use PowerCommands tool as your command-line environment instead of build in **cmd** or **powershell**, just open the VS solution [PowerCommandsClient](PowerCommandsClient) within this repo, set the PoserCommandsConsole project as startup project, hit [F5] and start typing your kubectl commands using the alias k (no need for the cmd and *.reg file configuration).
+You can use PowerCommands tool as your command-line environment instead of build in **cmd** or **powershell**, just open the VS solution [Power Kubernetes client](../PowerKubernetesClient/) within this repo, set the PoserCommandsConsole project as startup project, hit [F5] and start typing your kubectl commands using the alias k (no need for the cmd and *.reg file configuration).
 
 There could be some limitations if some interactions is required for instance login to a kubernetes environment with a password, the power command just passes through what you type to the kubectl.exe that was installed with Docker Desktop. 
 
-The PowerCommands also includes automation functionality to publish the tutorials automatically, applying the files from [src](src/) folder using the sort order of the file names. You could also startup the Kubernetes Dashboard or the ArgoCD Administration UI with decoding of the initial ArgoCD admin password that otherwise could be a bit tricky.
+For the Tanzu Kubernetes Kluster **kubectl** console application developed by VMware you need to first login using a standard cmd console or powershell, once you done that, leave that window open. Then you can run your [Power Kubernetes client](../PowerKubernetesClient/) as a logged in user.
+
+## Why use Power Kubernetes Client?
+The [Power Kubernetes client](../PowerKubernetesClient/) adds simplification of some kubectl commands and automation functionality to run a bunch of kubernetes manifest and special batch commands that you may need after the kubernetes part is done, like starting a proxy, port forwarding, open a browser and that kind if stuff.
+You have all the code in this repo so you can add your own commands easily just take a look at the existing one and start building your own.
 
 ## Visual Code
 https://code.visualstudio.com/download

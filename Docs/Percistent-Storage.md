@@ -2,12 +2,12 @@
 Containers are ephemeral by definition, which means that anything that it is stored at running time is lost when the container is stopped. This might cause problems with containers that need to persist their data, like database containers.
 
 ## Use case - Install MS SQL Server 
-So in this tutorial we are setting up a database container with persistent storage "outside" the container it self. When the container goes down, the data is still there ready to be used when the container is up again. For this tutorial we will use files and use the command **apply** to apply our changes to the kubernetes cluster. All this files are stored in the **[src/persistent-storage](../src/persistent-storage/)** directory.
+So in this tutorial we are setting up a database container with persistent storage "outside" the container it self. When the container goes down, the data is still there ready to be used when the container is up again. For this tutorial we will use files and use the command **apply** to apply our changes to the kubernetes cluster. All this files are stored in the **[manifests/persistent-storage](../manifests/persistent-storage/)** directory.
 
 ### Create a Persistent Volume
 Persistent volume claim is needed to store SQL Server data and yaml snippet to create a 5 GB storage is displayed below. The deployment file is going to mount files to this storage claim.
 
- **[persistent-storage-01-pvc.yaml](../src/persistent-storage/persistent-storage-01-pvc.yaml)**
+ **[persistent-storage-01-pvc.yaml](../manifests/persistent-storage/persistent-storage-01-pvc.yaml)**
 ```
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -20,7 +20,7 @@ spec:
    requests:
     storage: 5Gi
 ```
-Make sure that your command environment is browsing the directory with the yaml configuration files for this tutorial, they are located here **[src/persistent-storage](../src/persistent-storage/)**.
+Make sure that your command environment is browsing the directory with the yaml configuration files for this tutorial, they are located here **[src/persistent-storage](../manifests/persistent-storage/)**.
 
 Run this command:
 ```
@@ -29,7 +29,7 @@ k apply -f persistent-storage-01-pvc.yaml
 ### Create a Kubernetes Secret
 The SQL Server instance needs a password, we provide that with the use of a Kubernetes secret.
 
-**[persistent-storage-02-secret.yaml](../src/persistent-storage/persistent-storage-02-secret.yaml)**
+**[persistent-storage-02-secret.yaml](../manifests/persistent-storage/persistent-storage-02-secret.yaml)**
 ```
 kind: Secret
 apiVersion: v1
@@ -41,7 +41,7 @@ data:
   SA_PASSWORD: UEBzc3dvcmQxJA==
 type: Opaque
 ```
-If you want to change the password (and you really should) you could use the **[PowerCommands.KubernetesCommands](../PowerCommandsClient/)** command **base64**.
+If you want to change the password (and you really should) you could use the **[Power Kubernetes Client](../PowerKubernetesClient/)** command **base64**.
 ```
 base64 --encode your-new-password
 ```
@@ -54,7 +54,7 @@ k apply -f persistent-storage-02-secret.yaml
 
 ### Deployment
 
-**[persistent-storage-03-sqlserver-deploy.yaml](../src/persistent-storage/persistent-storage-03-sqlserver-deploy.yaml)** 
+**[persistent-storage-03-sqlserver-deploy.yaml](../manifests/persistent-storage/persistent-storage-03-sqlserver-deploy.yaml)** 
 
 ```
 apiVersion: apps/v1
@@ -101,7 +101,7 @@ k apply -f persistent-storage-03-sqlserver-deploy.yaml
 
 ### Service
 
-**[persistent-storage-04-sqlserver-svc.yaml](../src/persistent-storage/persistent-storage-04-sqlserver-svc.yaml)**
+**[persistent-storage-04-sqlserver-svc.yaml](../manifests/persistent-storage/persistent-storage-04-sqlserver-svc.yaml)**
 ```
 apiVersion: v1
 kind: Service

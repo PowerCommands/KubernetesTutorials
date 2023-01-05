@@ -45,7 +45,7 @@ kubectl get services
 ``` 
 NAME                  TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
 kubernetes            ClusterIP   10.96.0.1       <none>        443/TCP          22h
-kubernetes-bootcamp   NodePort    10.103.59.168   <none>        3000:30460/TCP   111s
+kubernetes-bootcamp   NodePort    10.103.59.168   <none>        3000:31123/TCP   111s
 ``` 
 Open this URL in your browser: http://localhost:30460
 If it´s not working, check the port number after 3000: it may not be the same as this example.
@@ -72,6 +72,6 @@ kubectl apply -f bootcamp-service.yaml
 ```
 publish bootcamp
 ```
-This will apply the files like the first tip, and it will also open the browser with this url: http://localhost:30460
+This will apply the files like the first tip, and it will also open the browser with this url: http://localhost:31123
 That step is fired because of the extra PowerCommands specific file has been added to the other manifest files, but it has nothing to do with kubernetes.
 As the tutorials will get more and more advanced I am sure that you does not want to do every single step manually.

@@ -1,18 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  creationTimestamp: "2022-12-19T18:07:43Z"
-  generation: 1
+metadata:  
   labels:
     app: kubernetes-bootcamp
   name: kubernetes-bootcamp
-  namespace: default
-  resourceVersion: "1310"
-  uid: a8669134-0bd5-42be-a1d0-ffd24dbe77df
-spec:
-  progressDeadlineSeconds: 600
-  replicas: 1
-  revisionHistoryLimit: 10
+  namespace: default  
+spec:  
+  replicas: 1  
   selector:
     matchLabels:
       app: kubernetes-bootcamp
@@ -36,7 +30,4 @@ spec:
         terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
-status: {}
+      schedulerName: default-scheduler     

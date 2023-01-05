@@ -1,13 +1,10 @@
 apiVersion: v1
 kind: Service
-metadata:
-  creationTimestamp: "2022-12-19T18:11:08Z"
+metadata:  
   labels:
     app: kubernetes-bootcamp
   name: kubernetes-bootcamp
-  namespace: default
-  resourceVersion: "1584"
-  uid: d8a2a2fb-0b70-4fc5-a6e8-beaab0612924
+  namespace: default  
 spec:
   clusterIP: 10.96.166.40
   clusterIPs:

@@ -15,12 +15,12 @@ Then run this command
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
-After you run that you will get instructions to run three commands, you can not run the example code as your Linux instance probably has another name then mine (wslmodermodem2). 
+After you run that you will get instructions to run three commands, you can not run the example code as your Linux instance probably has another name then mine (stisso2). 
 ```
-echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /home/wslmodermodem2/.profile
+echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /home/stisso2/.profile
 ```
 ```
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/wslmodermodem2/.profile
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/stisso2/.profile
 ```
 ```
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

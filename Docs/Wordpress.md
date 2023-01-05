@@ -26,7 +26,7 @@ Before we install Wordpress on our Kubernetes cluster, lets find out what is cus
 ```
 helm show values bitnami/wordpress
 ```
-Well... it´s a lot, I will not go through all the stuff, but I put the content in this [wordpress/values.yaml](../src/wordpress/values.yaml) file so that you could explore the content and change it if you want (or dare).
+Well... it´s a lot, I will not go through all the stuff, but I put the content in this [wordpress/values.yaml](../manifests/wordpress/values.yaml) file so that you could explore the content and change it if you want (or dare).
 
 I did no changes but before I installed I created a separate namespace for this tutorial named wordpress, like this.
 ```
