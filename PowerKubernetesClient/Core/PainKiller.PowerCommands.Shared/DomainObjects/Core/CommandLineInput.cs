@@ -10,5 +10,5 @@ public class CommandLineInput : ICommandLineInput
     public string[] Options { get; init; } = new List<string>().ToArray();
     public string SingleArgument => Arguments.Length > 0 ? Arguments[0] : "";
     public string SingleQuote => Quotes.Length > 0 ? Quotes[0].Replace("\"", "") : "";
-    public string? Path { get; init; }
+    public string Path { get; init; } = "";
 }

@@ -8,5 +8,5 @@ public interface ICommandLineInput
     string[] Options { get; init; }
     string SingleArgument { get; }
     string SingleQuote { get; }
-    string? Path { get; init; }
+    string Path { get; init; }
 }

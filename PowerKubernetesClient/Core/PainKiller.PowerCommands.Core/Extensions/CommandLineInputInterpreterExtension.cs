@@ -30,14 +30,17 @@ public static class CommandLineInputInterpreterExtension
                 if (!IsNullOrEmpty(quote)) quotes.Remove(quote);
             }
         }
-        var retVal = new CommandLineInput {Arguments = arguments.ToArray(), Identifier = identifier, Quotes = quotes.ToArray(), Options = options, Raw = raw, Path = arguments.ToArray().ToPath()};
+        var retVal = new CommandLineInput {Arguments = arguments.ToArray(), Identifier = identifier, Quotes = quotes.ToArray(), Options = options, Raw = raw, Path = arguments.ToArray().ToPath(quotes.ToArray(), raw)};
         return retVal;
     }
-    public static string ToPath(this string[] inputArray)
+    public static string ToPath(this string[] inputArray, string[] quotes, string raw)
     {
+        foreach (var quote in quotes) if(Path.IsPathFullyQualified(quote.Replace("\"",""))) return quote.Replace("\"","");
+
         if (inputArray.Length < 1) return "";
-        var path = Join(' ', inputArray);
-        return path;
+        var possiblePathArguments = raw.Split(' ').TakeWhile(argument => !argument.StartsWith("--") || argument.StartsWith("\"")).ToList();
+        var path = Join(' ', possiblePathArguments.Skip(1));
+        return !Path.IsPathFullyQualified(path) ? "" : path;
     }
     private static string[] ToStringArray(this MatchCollection matches)
     {
