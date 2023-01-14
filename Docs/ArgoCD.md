@@ -6,17 +6,36 @@ Each workload is defined declarative through a resource manifest in a YAML file.
 
 ### Create namespace
 ```
-kubectl apply -f argo-01-namespace.yaml
+kubectl apply -f argocd-01-namespace.yaml
+```
+### Change namespace of the current context
+Next step is to change the namespace to the newly created namespace named argo cd.
+```
+kubectl config set-context --current --namespace=argocd
 ```
 ### Deployment, services, and the other stuff...
 ```
-kubectl apply -f argo-02-deployment.yaml
+kubectl apply -f argocd-02-deployment.yaml
 ```
 Alternative you can run the file published here (the above command is just using a copy of the official one):
 ```
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/install.yaml
 ```
-
+Before we jump in to the next step we need to check that the pods are up and running, it could take a while before they are, run this command to check this.
+```
+kubectl get pods
+```
+This is how the result should look like:
+```
+NAME                                                READY   STATUS    RESTARTS   AGE
+argocd-application-controller-0                     1/1     Running   0          24s
+argocd-applicationset-controller-5c7cfb9c5f-kps8d   1/1     Running   0          24s
+argocd-dex-server-74cc9c9f78-5lhl2                  1/1     Running   0          24s
+argocd-notifications-controller-56bd7f7f9d-bzvbl    1/1     Running   0          24s
+argocd-redis-79c755c747-7582l                       1/1     Running   0          24s
+argocd-repo-server-65c5b7899b-lhmw6                 1/1     Running   0          24s
+argocd-server-7db799b589-s8x5g                      0/1     Running   0          24s
+```
 ### Port forward manually
 This how to manually do it, but if you could also jump over to the **Login and start using ArgoCD** step and use PowerCommands client to start the port forward, grab the initial password and open up the ArgoCD UI.
 ```
@@ -30,14 +49,10 @@ This will give you the password base64 encoded, you need do decode it with Linux
 ```
 base64 --decode <encoded-password>
 ```
-Next step explains how you could to this with one simple PowerCommand (but you must of course learn the manual way also, so that you understand what happens under the hood).
+### Open the browser and login
+Open [https://localhost:8080/](https://localhost:8080/)
 
-## Login and start using ArgoCD
-Easiest way is to start the [PowerCommandsClient](../PowerCommandsClient/) and run the argocd command.
-```
-argocd
-```
-This will start the port forwarding console, it will decode the initial password that you need to login with the username **admin** and it will also startup the ArgoCD UI in your browser. 
+Login with username **admin** and the decoded password.
 
 ### Add your repo
 Navigate to settings -> Repositories and choose **+Connect Repo**
