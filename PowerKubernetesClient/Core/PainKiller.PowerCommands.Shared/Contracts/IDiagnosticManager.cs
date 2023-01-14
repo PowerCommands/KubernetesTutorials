@@ -1,13 +1,14 @@
-﻿namespace PainKiller.PowerCommands.Shared.Contracts;
-
-public interface IDiagnosticManager
+﻿namespace PainKiller.PowerCommands.Shared.Contracts
 {
-    bool ShowDiagnostic { get; set; }
-    bool ShowElapsedTime { get; set; }
-    void Message(string diagnostic);
-    void Header(string header);
-    void Warning(string warning);
-    void Start();
-    void Stop();
-    string RootPath();
+    public interface IDiagnosticManager
+    {
+        bool ShowDiagnostic { get; set; }
+        bool ShowElapsedTime { get; set; }
+        void Message(string diagnostic);
+        void Header(string header);
+        void Warning(string warning);
+        void Start();
+        void Stop();
+        string RootPath();
+    }
 }

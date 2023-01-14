@@ -1,8 +1,9 @@
-﻿namespace PainKiller.PowerCommands.Shared.Utils.DisplayTable;
-
-public enum ColumnRenderFormat
+﻿namespace PainKiller.PowerCommands.Shared.Utils.DisplayTable
 {
-    None,
-    Standard,
-    SucessOrFailure
+    public enum ColumnRenderFormat
+    {
+        None,
+        Standard,
+        SucessOrFailure
+    }
 }

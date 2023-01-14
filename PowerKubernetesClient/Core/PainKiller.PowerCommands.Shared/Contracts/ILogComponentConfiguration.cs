@@ -1,9 +1,10 @@
-﻿namespace PainKiller.PowerCommands.Shared.Contracts;
-
-public interface ILogComponentConfiguration
+﻿namespace PainKiller.PowerCommands.Shared.Contracts
 {
-    string FileName { get; set; }
-    string FilePath { get; set; }
-    string RollingIntervall { get; set; }
-    string RestrictedToMinimumLevel { get; set; }
+    public interface ILogComponentConfiguration
+    {
+        string FileName { get; set; }
+        string FilePath { get; set; }
+        string RollingIntervall { get; set; }
+        string RestrictedToMinimumLevel { get; set; }
+    }
 }

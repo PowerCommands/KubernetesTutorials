@@ -1,16 +1,17 @@
-﻿namespace PainKiller.PowerCommands.Shared.Extensions;
-
-public static class RandomExtension
+﻿namespace PainKiller.PowerCommands.Shared.Extensions
 {
-    private static readonly Random Random = new();
-    public static void Shuffle<T>(this IList<T> list)
+    public static class RandomExtension
     {
-        var n = list.Count;
-        while (n > 1)
+        private static readonly Random Random = new();
+        public static void Shuffle<T>(this IList<T> list)
         {
-            n--;
-            var k = Random.Next(n + 1);
-            (list[k], list[n]) = (list[n], list[k]);
+            var n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                var k = Random.Next(n + 1);
+                (list[k], list[n]) = (list[n], list[k]);
+            }
         }
     }
 }

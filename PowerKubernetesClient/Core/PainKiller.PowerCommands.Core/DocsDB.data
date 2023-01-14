@@ -1,0 +1,132 @@
+{
+  "Docs": [
+    {
+      "DocID": 1,
+      "Name": "ReadMe",
+      "Uri": "https://github.com/PowerCommands/PowerCommands2022/tree/main/Docs",
+      "Updated": "2022-10-27T23:27:30.5781561+02:00",
+      "Tags": "start,documentation,index",
+      "Version": 1
+    },
+    {
+      "DocID": 3,
+      "Name": "Create-New-Command",
+      "Uri": "https://github.com/PowerCommands/PowerCommands2022/blob/main/Docs/Create_new_command.md",
+      "Updated": "2022-10-27T23:32:08.2584632+02:00",
+      "Tags": "visual,studio,template",
+      "Version": 1
+    },
+    {
+      "DocID": 4,
+      "Name": "Design-Your-Command",
+      "Uri": "https://github.com/PowerCommands/PowerCommands2022/blob/main/Docs/Design_command.md",
+      "Updated": "2022-10-27T23:33:28.4248646+02:00",
+      "Tags": "guidance,architecture",
+      "Version": 1
+    },
+    {
+      "DocID": 5,
+      "Name": "Options",
+      "Uri": "https://github.com/PowerCommands/PowerCommands2022/blob/main/Docs/Options.md",
+      "Updated": "2022-10-27T23:35:11.2412905+02:00",
+      "Tags": "Description,Attribute,Command",
+      "Version": 1
+    },
+    {
+      "DocID": 6,
+      "Name": "ICommandLineInput",
+      "Uri": "https://github.com/PowerCommands/PowerCommands2022/blob/main/Docs/Input.md",
+      "Updated": "2022-10-27T23:36:37.0650113+02:00",
+      "Tags": "Input,contracts,common,shared,code",
+      "Version": 1
+    },
+    {
+      "DocID": 7,
+      "Name": "PowerCommandsDesignAttribute",
+      "Uri": "https://github.com/PowerCommands/PowerCommands2022/blob/main/Docs/PowerCommandDesignAttribute.md",
+      "Updated": "2022-10-27T23:38:02.4488661+02:00",
+      "Tags": "describe,help,option,required,mandatory",
+      "Version": 1
+    },
+    {
+      "DocID": 8,
+      "Name": "CommandBase",
+      "Uri": "https://github.com/PowerCommands/PowerCommands2022/blob/main/Docs/CommandBase.md",
+      "Updated": "2022-10-29T22:56:10.9701074+02:00",
+      "Tags": "commands,development,core",
+      "Version": 1
+    },
+    {
+      "DocID": 9,
+      "Name": "Display-output-to-the-console",
+      "Uri": "https://github.com/PowerCommands/PowerCommands2022/blob/main/Docs/ConsoleOutput.md",
+      "Updated": "2022-10-29T22:59:48.7852167+02:00",
+      "Tags": "consoleservice,write,logging",
+      "Version": 1
+    },
+    {
+      "DocID": 10,
+      "Name": "PowerCommandsRuntime",
+      "Uri": "https://github.com/PowerCommands/PowerCommands2022/blob/main/Docs/PowerCommandsRuntime.md",
+      "Updated": "2022-10-29T23:02:03.1933386+02:00",
+      "Tags": "core",
+      "Version": 1
+    },
+    {
+      "DocID": 12,
+      "Name": "Extend-Your-Configuration",
+      "Uri": "https://github.com/PowerCommands/PowerCommands2022/blob/main/Docs/ExtendYourConfiguration.md",
+      "Updated": "2022-10-29T23:05:51.4651989+02:00",
+      "Tags": "extend,config",
+      "Version": 1
+    },
+    {
+      "DocID": 11,
+      "Name": "Configuration",
+      "Uri": "https://github.com/PowerCommands/PowerCommands2022/blob/main/Docs/Configuration.md",
+      "Updated": "2022-10-29T23:03:41.1210728+02:00",
+      "Tags": "PowerCommandsConfiguration.Yaml,config,Code,backup,default,repository,secret,environment",
+      "Version": 2
+    },
+    {
+      "DocID": 2,
+      "Name": "Create-New-PowerCommands-VS-Solution",
+      "Uri": "https://github.com/PowerCommands/PowerCommands2022/blob/main/Docs/Create_new_%20project.md",
+      "Updated": "2022-10-27T23:30:54.3917815+02:00",
+      "Tags": "Visual,solution",
+      "Version": 2
+    },
+    {
+      "DocID": 13,
+      "Name": "Documentation-Index-DB",
+      "Uri": "https://github.com/PowerCommands/PowerCommands2022/blob/main/Docs/DocumentationIndexDB.md",
+      "Updated": "2022-10-29T23:14:03.6173435+02:00",
+      "Tags": "documentation,appdata,docsDB.data",
+      "Version": 1
+    },
+    {
+      "DocID": 14,
+      "Name": "PowerCommands-Design-Principles-And-Guidlines",
+      "Uri": "https://github.com/PowerCommands/PowerCommands2022/blob/main/Docs/PowerCommands%20Design%20Principles%20And%20Guidlines.md",
+      "Updated": "2022-10-29T23:15:27.6814545+02:00",
+      "Tags": "architecture",
+      "Version": 1
+    },
+    {
+      "DocID": 15,
+      "Name": "Customize-Your-Project",
+      "Uri": "https://github.com/PowerCommands/PowerCommands2022/blob/main/Docs/Customize.md",
+      "Updated": "2022-10-29T23:17:52.0336282+02:00",
+      "Tags": "Boostrap,startup,program,PowerCommandServices",
+      "Version": 2
+    },
+    {
+      "DocID": 1,
+      "Name": "Secrets",
+      "Uri": "https://github.com/PowerCommands/PowerCommands2022/blob/main/Docs/Secrets.md",
+      "Updated": "2022-11-01T20:20:06.7320205+01:00",
+      "Tags": "encryption,configuration,owasp,security",
+      "Version": 1
+    }
+  ]
+}

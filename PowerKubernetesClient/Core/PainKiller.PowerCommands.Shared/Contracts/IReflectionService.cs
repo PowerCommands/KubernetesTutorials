@@ -1,11 +1,12 @@
-﻿using System.Reflection;
-using PainKiller.PowerCommands.Shared.DomainObjects.Configuration;
+﻿using PainKiller.PowerCommands.Shared.DomainObjects.Configuration;
+using System.Reflection;
 
-namespace PainKiller.PowerCommands.Shared.Contracts;
-
-public interface IReflectionService
+namespace PainKiller.PowerCommands.Shared.Contracts
 {
-    List<IConsoleCommand> GetCommands<TConfiguration>(BaseComponentConfiguration pluginInfo, TConfiguration configuration) where TConfiguration : CommandsConfiguration;
-    List<IConsoleCommand> GetCommands<TConfiguration>(Assembly assembly, TConfiguration configuration) where TConfiguration : CommandsConfiguration;
-    string GetVersion(Assembly assembly);
+    public interface IReflectionService
+    {
+        List<IConsoleCommand> GetCommands<TConfiguration>(BaseComponentConfiguration pluginInfo, TConfiguration configuration) where TConfiguration : CommandsConfiguration;
+        List<IConsoleCommand> GetCommands<TConfiguration>(Assembly assembly, TConfiguration configuration) where TConfiguration : CommandsConfiguration;
+        string GetVersion(Assembly assembly);
+    }
 }

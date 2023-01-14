@@ -1,6 +1,7 @@
-﻿namespace PainKiller.PowerCommands.Security.Contracts;
-
-public interface IPasswordPromptService
+﻿namespace PainKiller.PowerCommands.Security.Contracts
 {
-    string ReadPassword();
+    public interface IPasswordPromptService
+    {
+        string ReadPassword();
+    }
 }

@@ -1,9 +1,10 @@
 namespace PainKiller.PowerCommands.KubernetesCommands.Commands;
 
 [PowerCommandDesign(description: "Example shows how to execute a external program, in this case git, commit and push your repository, path to repository is in the configuration file",
-                arguments: "!commit|push|status|log|branch",
-                  options: "create|change|delete|merge|main",
+                arguments: "commit|push|status|log|branch",
+                  options: "create|change|delete|merge|main|relative-path",
                    quotes: "\"<comment>\" defaults to \"refactoring\" if omitted, only used with commit.",
+              suggestions: "status|commit|push|log|branch",
                   example: "//Add and commit|git commit \"Bugfix\"|//Performs a push to Git repo|git push|//Git status of the configured git repo|git status|//Show log|git log|//Create and change to branch|git branch --create my-branch|//Change branch|git branch --change my-branch|//Merge branch|git --merge my-branch|//Delete branch locally (and remote if you want)|git --delete my-branch|//Change to main branch|git branch main")]
 
 public class GitCommand : CommandBase<PowerCommandsConfiguration>
@@ -11,6 +12,12 @@ public class GitCommand : CommandBase<PowerCommandsConfiguration>
     public GitCommand(string identifier, PowerCommandsConfiguration configuration) : base(identifier, configuration) { }
     public override RunResult Run()
     {
+        if (HasOption("relative-path"))
+        {
+            var relativePath = GetGitRelativePath();
+            WriteCodeExample("Relative path", relativePath);
+            return Ok();
+        }
         switch (Input.SingleArgument)
         {
             case "commit":
@@ -77,5 +84,27 @@ public class GitCommand : CommandBase<PowerCommandsConfiguration>
 
         ShellService.Service.Execute("git", $"push --set-upstream origin \"{branchName}\"", Configuration.DefaultGitRepositoryPath, WriteLine, waitForExit: true);
         WriteProcessLog("GIT", $"push --set-upstream origin \"{branchName}\"");
+    }
+
+    private string GetGitRelativePath()
+    {
+        var path = AppContext.BaseDirectory;
+        var relativePath = "";
+        var gitFound = false;
+        var maxRepeatCount = 15;
+        var iterationCount = 0;
+        while (gitFound == false)
+        {
+            iterationCount++;
+            var skipLast = path.EndsWith("\\") ? 2 : 1;
+            var paths = path.Split(Path.DirectorySeparatorChar).SkipLast(skipLast);
+            path = string.Join(Path.DirectorySeparatorChar, paths);
+            var directory = new DirectoryInfo(path);
+            gitFound = directory.GetDirectories().Any(d => d.Name.StartsWith(".git"));
+            if (!gitFound) relativePath += "..\\";
+            if(iterationCount > maxRepeatCount) break;
+        }
+
+        return relativePath;
     }
 }

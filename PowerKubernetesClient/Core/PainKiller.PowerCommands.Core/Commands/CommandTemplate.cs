@@ -1,11 +1,12 @@
-﻿namespace PainKiller.PowerCommands.Core.Commands;
-
-public class CommandTemplate : CommandBase<CommandsConfiguration>
+﻿namespace PainKiller.PowerCommands.Core.Commands
 {
-    public CommandTemplate(string identifier, CommandsConfiguration configuration) : base(identifier, configuration) { }
-
-    public override RunResult Run()
+    public class CommandTemplate : CommandBase<CommandsConfiguration>
     {
-        return Ok();
+        public CommandTemplate(string identifier, CommandsConfiguration configuration) : base(identifier, configuration) { }
+
+        public override RunResult Run()
+        {
+            return Ok();
+        }
     }
 }

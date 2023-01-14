@@ -1,7 +1,8 @@
-﻿namespace PainKiller.PowerCommands.Shared.DomainObjects.Configuration;
-
-public class EnvironmentItemConfiguration
+﻿namespace PainKiller.PowerCommands.Shared.DomainObjects.Configuration
 {
-    public string Name { get; set; } = "Name";
-    public string EnvironmentVariableTarget { get; set; } = "User";
+    public class EnvironmentItemConfiguration
+    {
+        public string Name { get; set; } = "Name";
+        public string EnvironmentVariableTarget { get; set; } = "User";
+    }
 }

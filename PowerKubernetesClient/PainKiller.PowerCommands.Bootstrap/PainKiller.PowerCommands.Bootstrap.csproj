@@ -19,5 +19,8 @@
 	<ItemGroup>
 		<Folder Include="Extensions\" />
 	</ItemGroup>
-
+	<ItemGroup>
+		<ProjectCapability Include="ConfigurableFileNesting" />
+		<ProjectCapability Include="ConfigurableFileNestingFeatureEnabled" />
+	</ItemGroup>
 </Project>

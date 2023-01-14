@@ -1,2 +1,4 @@
-﻿namespace PainKiller.PowerCommands.Shared.Contracts;
-public interface IConsoleCommandTable { }
+﻿namespace PainKiller.PowerCommands.Shared.Contracts
+{
+    public interface IConsoleCommandTable { }
+}

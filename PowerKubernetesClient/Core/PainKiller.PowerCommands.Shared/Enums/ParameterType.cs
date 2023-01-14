@@ -1,9 +1,10 @@
-﻿namespace PainKiller.PowerCommands.Shared.Enums;
-
-public enum ParameterType
+﻿namespace PainKiller.PowerCommands.Shared.Enums
 {
-    Argument,
-    Quote,
-    Option,
-    Secret
+    public enum ParameterType
+    {
+        Argument,
+        Quote,
+        Option,
+        Secret
+    }
 }

@@ -11,7 +11,7 @@ using PainKiller.PowerCommands.Shared.DomainObjects.Core;
 using PainKiller.PowerCommands.Shared.Enums;
 
 namespace PainKiller.PowerCommands.Bootstrap;
-public class PowerCommandsManager : IPowerCommandsManager
+public partial class PowerCommandsManager : IPowerCommandsManager
 {
     public readonly IExtendedPowerCommandServices<PowerCommandsConfiguration> Services;
     public PowerCommandsManager(IExtendedPowerCommandServices<PowerCommandsConfiguration> services) { Services = services; }
@@ -22,6 +22,7 @@ public class PowerCommandsManager : IPowerCommandsManager
         {
             try
             {
+                RunCustomCode();
                 var promptText = runFlow.CurrentRunResultStatus == RunResultStatus.Async ? "" : $"\n{ConfigurationGlobals.Prompt}";
                 runFlow.Raw = runFlow.RunAutomatedAtStartup ? string.Join(' ', args) : ReadLine.ReadLineService.Service.Read(prompt: promptText);
                 if (string.IsNullOrEmpty(runFlow.Raw.Trim())) continue;

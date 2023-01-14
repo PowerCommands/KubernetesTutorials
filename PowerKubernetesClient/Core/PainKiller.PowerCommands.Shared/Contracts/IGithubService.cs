@@ -1,7 +1,8 @@
-﻿namespace PainKiller.PowerCommands.Shared.Contracts;
-
-public interface IGithubService
+﻿namespace PainKiller.PowerCommands.Shared.Contracts
 {
-    void MergeDocsDB();
-    void DownloadCommand(string commandName);
+    public interface IGithubService
+    {
+        void MergeDocsDB();
+        void DownloadCommand(string commandName);
+    }
 }

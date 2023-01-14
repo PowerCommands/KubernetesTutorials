@@ -11,9 +11,10 @@ namespace PainKiller.PowerCommands.Shared.DomainObjects.Configuration
         public string BackupPath { get; set; } = "C:\\Temp";
         public Metadata Metadata { get; set; } = new();
         public LogComponentConfiguration Log { get; set; } = new();
-        public List<BaseComponentConfiguration> Components { get; set; } = new() {new BaseComponentConfiguration {Name = "PainKiller Core", Component = "PainKiller.PowerCommands.Core.dll", Checksum = "e6d2d6cb64863e9dc68a9602f83bcfde"}};
+        public List<BaseComponentConfiguration> Components { get; set; } = new() { new BaseComponentConfiguration { Name = "PainKiller Core", Component = "PainKiller.PowerCommands.Core.dll", Checksum = "e6d2d6cb64863e9dc68a9602f83bcfde" } };
         public List<ProxyPowerCommandConfiguration> ProxyCommands { get; set; } = new();
         public SecretConfiguration Secret { get; set; } = new();
         public EnvironmentConfiguration Environment { get; set; } = new();
+        public BookmarkConfiguration Bookmark { get; set; } = new();
     }
 }

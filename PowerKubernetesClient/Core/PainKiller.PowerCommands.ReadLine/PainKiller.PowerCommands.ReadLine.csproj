@@ -12,6 +12,7 @@
     <Folder Include="DomainObjects\" />
     <Folder Include="Handlers\" />
     <Folder Include="Managers\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 
 </Project>

@@ -3,7 +3,7 @@ namespace PainKiller.PowerCommands.KubernetesCommands.Commands;
 [PowerCommandTest(         tests: " ")]
 [PowerCommandDesign( description: "Config command is a util to help you build a default yaml configuration file, practical when you adding new configuration elements to the PowerCommandsConfiguration class",
                        arguments: "<action>(create or edit)",
-                      suggestion: "edit",
+                      suggestions: "edit|create",
                          example: "//Show config|config|//Creates a default.yaml file in the application folder|config create|//Open the PowerCommandsConfiguration.yaml file with your configured editor.|config edit")]
 public class ConfigCommand : CommandBase<PowerCommandsConfiguration>
 {

@@ -1,7 +1,9 @@
-﻿namespace PainKiller.PowerCommands.Shared.DomainObjects.Configuration;
-public class SecretItemConfiguration
+﻿namespace PainKiller.PowerCommands.Shared.DomainObjects.Configuration
 {
-    public SecretItemConfiguration() => Options.Add("target","User");
-    public string Name { get; set; } = "command-name-password";
-    public Dictionary<string, string> Options { get; set; } = new();
+    public class SecretItemConfiguration
+    {
+        public SecretItemConfiguration() => Options.Add("target", "User");
+        public string Name { get; set; } = "command-name-password";
+        public Dictionary<string, string> Options { get; set; } = new();
+    }
 }

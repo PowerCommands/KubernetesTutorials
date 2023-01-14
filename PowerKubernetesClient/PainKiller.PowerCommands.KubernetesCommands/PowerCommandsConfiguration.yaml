@@ -5,9 +5,9 @@ configuration:
   codeEditor: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe
   repository: https://github.com/PowerCommands/PowerCommands2022
   backupPath: ..\..\..\..\Core\PainKiller.PowerCommands.Core\  
-  defaultGitRepositoryPath: ..\..\..\..\..\  
-  kubernetesDeploymentFilesRoot: ..\..\..\..\..\manifests\  
+  defaultGitRepositoryPath: ..\..\..\..\
   pathToDockerDesktop: C:\Program Files\Docker\Docker
+  loginShellCommand: 
   metadata:
     name: PowerKubernetes
     description: kubectl client
@@ -25,15 +25,12 @@ configuration:
     name: PainKiller Core
   - component: PainKiller.PowerCommands.KubernetesCommands.dll
     checksum: a2df61ea89e4f9ec265d921bfad87193
-    name: Kubernetes Commands
-  proxyCommands:
-  - name: kdb
-    workingDirctory: C:\repos\Publish\KnowledgeDB
-    commands:
-    - find
-  secret:
-    secrets:    
-  environment:
-    variables:
-    - name: OS
-      environmentVariableTarget: Machine
+    name: Kubernetes Commands 
+  bookmark:
+    bookmarks:
+    - name: manifests
+      path: C:\Repos\Github\PowerKubernetes\manifests
+      index: 0
+    - name: tutorial
+      path: C:\Repos\Github\KubernetesTutorials\manifests
+      index: 1

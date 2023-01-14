@@ -1,14 +1,15 @@
-﻿namespace PainKiller.PowerCommands.Core.Commands;
-
-[PowerCommandTest(        tests: " ")]
-[PowerCommandDesign(description: "Clears the console",
-             disableProxyOutput: true)]
-public class ClsCommand : CommandBase<CommandsConfiguration>
+﻿namespace PainKiller.PowerCommands.Core.Commands
 {
-    public ClsCommand(string identifier, CommandsConfiguration configuration) : base(identifier, configuration) { }
-    public override RunResult Run()
+    [PowerCommandTest(tests: " ")]
+    [PowerCommandDesign(description: "Clears the console",
+                 disableProxyOutput: true)]
+    public class ClsCommand : CommandBase<CommandsConfiguration>
     {
-        Console.Clear();
-        return Ok();
+        public ClsCommand(string identifier, CommandsConfiguration configuration) : base(identifier, configuration) { }
+        public override RunResult Run()
+        {
+            Console.Clear();
+            return Ok();
+        }
     }
 }

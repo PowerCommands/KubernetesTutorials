@@ -1,9 +1,10 @@
-﻿namespace PainKiller.PowerCommands.Shared.Utils.DisplayTable;
-
-public enum WriteFormat
+﻿namespace PainKiller.PowerCommands.Shared.Utils.DisplayTable
 {
-    Default = 0,
-    MarkDown = 1,
-    Alternative = 2,
-    Minimal = 3
+    public enum WriteFormat
+    {
+        Default = 0,
+        MarkDown = 1,
+        Alternative = 2,
+        Minimal = 3
+    }
 }
