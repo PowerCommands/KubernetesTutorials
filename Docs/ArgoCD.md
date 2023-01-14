@@ -62,7 +62,9 @@ Easiest is to connect to a public Github repo, why not use this repo ```https://
 
 
 ### Add an application
-Use the **+New App** button, fill in the necessary info, the path to the directory you want to sync, project name could be **default** sync policy **manual** cluster URL **https://kubernetes.default.svc** (it is a predefined value). If you have connected tho this repo the path to the SQL database manifest files is **manifests/persistent-storage**.
+Use the **+New App** button, fill in the necessary info, witch is the path to the directory you want to sync, project name could be **default** sync policy **manual** cluster URL **https://kubernetes.default.svc** (it is a predefined value). If you have connected tho this repo the path to the SQL database manifest files is **manifests/persistent-storage**.
+
+![Alt text](images/argocd_app.png?raw=true "Argo CD create app screenshot")
 
 ### Sync
 And then you will have your first ArgoCD application, as in this example, using the configuration files for the **[Persistent storage tutorial](../src/persistent-storage/)** tutorial.
