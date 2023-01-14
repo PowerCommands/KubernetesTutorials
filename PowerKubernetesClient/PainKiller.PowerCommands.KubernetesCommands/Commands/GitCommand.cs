@@ -89,7 +89,7 @@ public class GitCommand : CommandBase<PowerCommandsConfiguration>
     private string GetGitRelativePath()
     {
         var path = AppContext.BaseDirectory;
-        var relativePath = "";
+        var relativePath = "..\\";
         var gitFound = false;
         var maxRepeatCount = 15;
         var iterationCount = 0;
