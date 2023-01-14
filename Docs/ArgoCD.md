@@ -56,10 +56,13 @@ Login with username **admin** and the decoded password.
 
 ### Add your repo
 Navigate to settings -> Repositories and choose **+Connect Repo**
-Easiest is to connect to a public Github repo using **Via https** method (you point out a directory later)
+Easiest is to connect to a public Github repo, why not use this repo ```https://github.com/PowerCommands/``` KubernetesTutorials using **Via https** method (you point out a directory later)
+
+![Alt text](images/argocd_connect_repo.png?raw=true "Argo CD add repository screenshot")
+
 
 ### Add an application
-Use the **+New App** button, fill in the necessary info, the path to the directory you want to sync, project name could be **default** sync policy **manual** cluster URL **https://kubernetes.default.svc** (it is a predefined value).
+Use the **+New App** button, fill in the necessary info, the path to the directory you want to sync, project name could be **default** sync policy **manual** cluster URL **https://kubernetes.default.svc** (it is a predefined value). If you have connected tho this repo the path to the SQL database manifest files is **manifests/persistent-storage**.
 
 ### Sync
 And then you will have your first ArgoCD application, as in this example, using the configuration files for the **[Persistent storage tutorial](../src/persistent-storage/)** tutorial.
