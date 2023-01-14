@@ -55,7 +55,7 @@ Login with username **admin** and the decoded password.
 
 ### Add your repo
 Navigate to settings -> Repositories and choose **+Connect Repo**
-Easiest is to connect to a public Github repo, why not use this repo ```https://github.com/PowerCommands/``` KubernetesTutorials using **Via https** method (you point out a directory later)
+Easiest is to connect to a public Github repo, why not use this repo ```https://github.com/PowerCommands/KubernetesTutorials``` KubernetesTutorials using **Via https** method (you point out a directory later)
 
 ![Alt text](images/argocd_connect_repo.png?raw=true "Argo CD add repository screenshot")
 
