@@ -36,12 +36,11 @@ argocd-redis-79c755c747-7582l                       1/1     Running   0         
 argocd-repo-server-65c5b7899b-lhmw6                 1/1     Running   0          24s
 argocd-server-7db799b589-s8x5g                      0/1     Running   0          24s
 ```
-### Port forward manually
-This how to manually do it, but if you could also jump over to the **Login and start using ArgoCD** step and use PowerCommands client to start the port forward, grab the initial password and open up the ArgoCD UI.
+### Port forward
 ```
 kubectl port-forward svc/argocd-server -n argocd 8080:443 
 ```
-### Get the initial secret manually
+### Get the initial secret
 ```
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}"
 ```
